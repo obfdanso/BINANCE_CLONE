@@ -72,7 +72,7 @@ const BitbyLearnBeginnerOptions = () => {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Welcome Section */}
         <View style={styles.welcomeSection}>
-          <Text style={styles.welcomeTitle}>Welcome to BitbyLearn Beginner's Page</Text>
+          <Text style={styles.welcomeTitle}>Welcome to BitbyLearn Beginner&apos;s Page</Text>
           <Text style={styles.welcomeSubtitle}>Select an option to continue:</Text>
         </View>
 

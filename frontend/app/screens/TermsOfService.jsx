@@ -54,7 +54,7 @@ export default function TermsOfService() {
                 <View style={styles.sectionCard}>
                     <Text style={styles.sectionTitle}>3. Disclaimer</Text>
                     <Text style={styles.sectionText}>
-                        The materials on Bitby's application are provided on an 'as is' basis. Bitby makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                        The materials on Bitby&apos;s application are provided on an &apos;as is&apos; basis. Bitby makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
                     </Text>
                 </View>
             </ScrollView>

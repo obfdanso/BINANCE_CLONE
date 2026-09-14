@@ -31,8 +31,6 @@ public class UserService {
     @Autowired
     private OtpService otpService;
     
-    @Autowired
-    private TelegramBotService telegramBotService;
     
     @Autowired
     private VerificationOtpRepository verificationOtpRepository;
@@ -51,10 +49,7 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
     
-    public boolean isTelegramUsernameTaken(String telegramUsername) {
-        return userRepository.existsByTelegramUsername(telegramUsername);
-    }
-    
+        
     public String generateUniqueUsername() {
         // Generate a fun, memorable username with random elements
         String[] adjectives = {"happy", "sunny", "clever", "brave", "mighty", "cosmic", "dazzling", "golden", "silver", "brilliant",
@@ -118,70 +113,9 @@ public class UserService {
         return userRepository.save(user);
     }
     
-    public User createUserWithVerifiedTelegram(PasswordSetupRequest passwordRequest) {
-        String email = passwordRequest.getEmail();
         
-        // Verify that telegram is verified
-        String telegramUsername = telegramBotService.getTelegramUsername(email);
-        if (telegramUsername == null) {
-            throw new IllegalStateException("Telegram verification is incomplete");
-        }
         
-        // Create the user
-        User user = new User();
-        // Use telegram username as app username instead of generating a random one
-        String username = telegramUsername;
-        // If telegram username is already taken as an app username, add a suffix
-        if (isUsernameTaken(username)) {
-            int suffix = 1;
-            while (isUsernameTaken(username + suffix)) {
-                suffix++;
-            }
-            username = username + suffix;
-        }
         
-        String userId = generateUserId();
-        
-        user.setUsername(username);
-        user.setUserId(userId);
-        user.setEmail(email);
-        user.setPassword(passwordEncoder.encode(passwordRequest.getPassword()));
-        user.setTelegramUsername(telegramUsername);
-        
-        return userRepository.save(user);
-    }
-    
-    public boolean existsByTelegramUsername(String telegramUsername) {
-        return userRepository.existsByTelegramUsername(telegramUsername);
-    }
-    
-    public User createUserWithTelegramOnly(String telegramUsername) {
-        // Create a new user with only Telegram authentication
-        User user = new User();
-        
-        // Use telegram username as app username instead of generating a random one
-        String username = telegramUsername;
-        // If telegram username is already taken as an app username, add a suffix
-        if (isUsernameTaken(username)) {
-            int suffix = 1;
-            while (isUsernameTaken(username + suffix)) {
-                suffix++;
-            }
-            username = username + suffix;
-        }
-        
-        String userId = generateUserId();
-        
-        user.setUsername(username);
-        user.setUserId(userId);
-        user.setTelegramUsername(telegramUsername);
-        // No email required
-        // Generate a random password that won't be used for login
-        user.setPassword(passwordEncoder.encode(generateRandomPassword()));
-        
-        return userRepository.save(user);
-    }
-    
     private String generateRandomPassword() {
         // Generate a secure random password
         byte[] array = new byte[24];
@@ -189,41 +123,7 @@ public class UserService {
         return new String(array, java.nio.charset.StandardCharsets.UTF_8);
     }
     
-    public ResponseEntity<?> authenticateWithTelegramOtp(String telegramUsername, String otp) {
-        // Verify OTP
-        Optional<VerificationOtp> otpEntityOpt = verificationOtpRepository.findByTelegramUsernameAndVerificationType(
-                telegramUsername, VerificationOtp.VerificationType.TELEGRAM_LOGIN);
         
-        if (otpEntityOpt.isEmpty() || !otpEntityOpt.get().getOtp().equals(otp) || otpEntityOpt.get().isExpired()) {
-            return ResponseEntity.badRequest()
-                    .body(new MessageResponse("Error: Invalid OTP or expired!"));
-        }
-        
-        // Find user by Telegram username
-        Optional<User> userOpt = userRepository.findByTelegramUsername(telegramUsername);
-        if (userOpt.isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body(new MessageResponse("Error: User not found!"));
-        }
-        
-        // Generate JWT token
-        User user = userOpt.get();
-        // Mark OTP as used
-        VerificationOtp otpEntity = otpEntityOpt.get();
-        otpEntity.setVerified(true);
-        verificationOtpRepository.save(otpEntity);
-        
-        // Generate and return JWT token
-        String jwt = jwtUtils.generateJwtToken(user);
-        
-        return ResponseEntity.ok(new AuthResponse(
-            jwt,
-            user.getUserId(),
-            user.getUsername(),
-            "Successfully authenticated via Telegram!"
-        ));
-    }
-    
     /**
      * Change a user's username
      * @param currentUsername The current username
@@ -290,41 +190,7 @@ public class UserService {
         return ResponseEntity.ok(new MessageResponse("Password updated successfully!"));
     }
     
-    /**
-     * Generate OTP for Telegram login
-     * @param telegramUsername The user's Telegram username
-     * @return Response with success/error message
-     */
-    public ResponseEntity<?> generateTelegramLoginOtp(String telegramUsername) {
-        // Verify that a user with this Telegram username exists
-        Optional<User> userOpt = userRepository.findByTelegramUsername(telegramUsername);
-        if (userOpt.isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body(new MessageResponse("Error: No user found with this Telegram username!"));
-        }
         
-        // Generate a random 6-digit OTP
-        String otp = String.format("%06d", new Random().nextInt(1000000));
-        
-        // Save OTP to database
-        VerificationOtp otpEntity = new VerificationOtp();
-        otpEntity.setTelegramUsername(telegramUsername);
-        otpEntity.setOtp(otp);
-        otpEntity.setVerificationType(VerificationOtp.VerificationType.TELEGRAM_LOGIN);
-        // Using expiryTime from VerificationOtp class with LocalDateTime
-        otpEntity.setExpiryTime(LocalDateTime.now().plusMinutes(5)); // 5 minutes expiry
-        verificationOtpRepository.save(otpEntity);
-        
-        // Send OTP via Telegram bot - passing both username and OTP
-        boolean sent = telegramBotService.sendLoginOtp(telegramUsername, otp);
-        if (!sent) {
-            return ResponseEntity.badRequest()
-                    .body(new MessageResponse("Error: Failed to send OTP via Telegram."));
-        }
-        
-        return ResponseEntity.ok(new MessageResponse("OTP sent successfully! Please check your Telegram."));
-    }
-    
     /**
      * Request password reset OTP
      * @param email The user's email

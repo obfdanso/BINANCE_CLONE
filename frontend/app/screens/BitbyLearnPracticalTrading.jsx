@@ -32,7 +32,7 @@ const BitbyLearnPracticalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Practical Trading</Text>
             <Text style={styles.paragraph}>
-              Practical trading means using our app's tools to make real trades with confidence, building on your 1-2 years of experience. As an intermediate trader, you're ready to trade actively, use charts, and manage risks in a hands-on way. Let's walk through how to trade practically in our app, similar to Binance.
+              Practical trading means using our app&apos;s tools to make real trades with confidence, building on your 1-2 years of experience. As an intermediate trader, you&apos;re ready to trade actively, use charts, and manage risks in a hands-on way. Let&apos;s walk through how to trade practically in our app, similar to Binance.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnPracticalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Start with Spot Trading</Text>
             <Text style={styles.paragraph}>
-              Start in the "Spot Trading" section, which is great for intermediate traders. Choose a coin like Bitcoin (BTC) or Ethereum (ETH). Look at the "Markets" section for a simple chart. Check the 50-day Moving Average—if the price is above it, it might be a good time to buy. For example, if Bitcoin is at $36,000 and above the average, enter a market order to buy $50 worth. Tap "Buy" to complete the trade.
+              Start in the &quot;Spot Trading&quot; section, which is great for intermediate traders. Choose a coin like Bitcoin (BTC) or Ethereum (ETH). Look at the &quot;Markets&quot; section for a simple chart. Check the 50-day Moving Average—if the price is above it, it might be a good time to buy. For example, if Bitcoin is at $36,000 and above the average, enter a market order to buy $50 worth. Tap &quot;Buy&quot; to complete the trade.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnPracticalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Try Limit Orders for Control</Text>
             <Text style={styles.paragraph}>
-              Try limit orders for more control. In "Spot Trading," set a buy price, like $35,000 for Bitcoin. If the price drops to that level, the app automatically buys for you. This is practical because you don't need to watch the market all day. Set a sell limit order too, like $40,000, to lock in profits if the price rises.
+              Try limit orders for more control. In &quot;Spot Trading,&quot; set a buy price, like $35,000 for Bitcoin. If the price drops to that level, the app automatically buys for you. This is practical because you don&apos;t need to watch the market all day. Set a sell limit order too, like $40,000, to lock in profits if the price rises.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnPracticalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Experiment with Futures Trading</Text>
             <Text style={styles.paragraph}>
-              Experiment with "Futures Trading" for short-term bets. Use low leverage, like 3x, to control a bigger position with less money. For example, with $100, you can trade $300 of Ethereum. Choose "Isolated" margin to limit risk to that trade. Use the app's "Calculator" to see potential profits or losses before trading. Check the "Funding Rate" to understand fees.
+              Experiment with &quot;Futures Trading&quot; for short-term bets. Use low leverage, like 3x, to control a bigger position with less money. For example, with $100, you can trade $300 of Ethereum. Choose &quot;Isolated&quot; margin to limit risk to that trade. Use the app&apos;s &quot;Calculator&quot; to see potential profits or losses before trading. Check the &quot;Funding Rate&quot; to understand fees.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnPracticalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Use Price Alerts for Updates</Text>
             <Text style={styles.paragraph}>
-              Use "Price Alerts" to stay updated without stress. Set an alert for when Ethereum hits $2,500 to buy or $3,000 to sell. This keeps your trading practical and planned. Also, check the "Order History" section to review your trades—see what worked and what didn't to improve your skills.
+              Use &quot;Price Alerts&quot; to stay updated without stress. Set an alert for when Ethereum hits $2,500 to buy or $3,000 to sell. This keeps your trading practical and planned. Also, check the &quot;Order History&quot; section to review your trades—see what worked and what didn&apos;t to improve your skills.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnPracticalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Diversify Your Trades</Text>
             <Text style={styles.paragraph}>
-              Diversify your trades. Instead of putting all your money in one coin, split $200 between Bitcoin and Ethereum. This reduces risk if one coin's price drops. Your "Wallet" shows all your coins and their values, making it easy to track.
+              Diversify your trades. Instead of putting all your money in one coin, split $200 between Bitcoin and Ethereum. This reduces risk if one coin&apos;s price drops. Your &quot;Wallet&quot; shows all your coins and their values, making it easy to track.
             </Text>
           </View>
 
@@ -80,7 +80,7 @@ const BitbyLearnPracticalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Small, Consistent Steps</Text>
             <Text style={styles.paragraph}>
-              Practical trading means small, consistent steps. Use the app's learning hub to read about indicators or strategies, and practice with small amounts in "Spot Trading" or "Futures Trading." Our app's clear interface, with charts and order options, makes trading straightforward. Trade regularly, review results, and keep learning!
+              Practical trading means small, consistent steps. Use the app&apos;s learning hub to read about indicators or strategies, and practice with small amounts in &quot;Spot Trading&quot; or &quot;Futures Trading.&quot; Our app&apos;s clear interface, with charts and order options, makes trading straightforward. Trade regularly, review results, and keep learning!
             </Text>
           </View>
         </View>

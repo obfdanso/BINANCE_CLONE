@@ -32,7 +32,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Develop a Strategy</Text>
             <Text style={styles.paragraph}>
-              A strategy is like a plan for how you'll use crypto in our app. As a beginner, you don't need a complicated plan, but having a simple one helps you stay focused and avoid mistakes. Crypto can be exciting, but without a strategy, you might buy or sell at the wrong time and lose money. Let's make a basic plan that's easy to follow.
+              A strategy is like a plan for how you&apos;ll use crypto in our app. As a beginner, you don&apos;t need a complicated plan, but having a simple one helps you stay focused and avoid mistakes. Crypto can be exciting, but without a strategy, you might buy or sell at the wrong time and lose money. Let&apos;s make a basic plan that&apos;s easy to follow.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>First Steps</Text>
             <Text style={styles.paragraph}>
-              First, decide why you're using crypto. Do you want to hold it for a long time, hoping the price goes up? This is called "buy and hold," and it's great for beginners. Or do you want to trade, buying low and selling high to make small profits? In our app, you can do both. For now, let's focus on "buy and hold" since it's simpler.
+              First, decide why you&apos;re using crypto. Do you want to hold it for a long time, hoping the price goes up? This is called &quot;buy and hold,&quot; and it&apos;s great for beginners. Or do you want to trade, buying low and selling high to make small profits? In our app, you can do both. For now, let&apos;s focus on &quot;buy and hold&quot; since it&apos;s simpler.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Choosing Cryptocurrencies</Text>
             <Text style={styles.paragraph}>
-              Start by picking one or two cryptocurrencies, like Bitcoin (BTC) or Ethereum (ETH). These are popular and less risky than smaller coins. Use the "Buy Crypto" section to purchase a small amount, like $10 of Bitcoin. Your strategy could be to hold it in your app's "Wallet" for a few months and check the price weekly in the "Markets" section.
+              Start by picking one or two cryptocurrencies, like Bitcoin (BTC) or Ethereum (ETH). These are popular and less risky than smaller coins. Use the &quot;Buy Crypto&quot; section to purchase a small amount, like $10 of Bitcoin. Your strategy could be to hold it in your app&apos;s &quot;Wallet&quot; for a few months and check the price weekly in the &quot;Markets&quot; section.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Learning Strategy</Text>
             <Text style={styles.paragraph}>
-              Another part of your strategy is learning. Spend a little time each week in our app's learning hub (like Binance Academy) to understand crypto better. Learn one new thing at a time, like what a "market order" is or how to read a price chart. This builds your confidence without overwhelming you.
+              Another part of your strategy is learning. Spend a little time each week in our app&apos;s learning hub (like Binance Academy) to understand crypto better. Learn one new thing at a time, like what a &quot;market order&quot; is or how to read a price chart. This builds your confidence without overwhelming you.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Stick to Your Plan</Text>
             <Text style={styles.paragraph}>
-              Stick to your plan. Don't buy more just because prices are going up fast—that's called chasing the market and can lead to losses. Our app has tools like "Price Alerts" to notify you when a crypto hits a certain price, so you can stick to your strategy without checking all day.
+              Stick to your plan. Don&apos;t buy more just because prices are going up fast—that&apos;s called chasing the market and can lead to losses. Our app has tools like &quot;Price Alerts&quot; to notify you when a crypto hits a certain price, so you can stick to your strategy without checking all day.
             </Text>
           </View>
 
@@ -80,7 +80,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Growing Your Strategy</Text>
             <Text style={styles.paragraph}>
-              Your strategy can grow as you learn. For now, keep it simple: buy a small amount, hold it, learn a bit each week, and don't spend more than you planned. Our app's easy design, with clear buttons and guides, helps you follow your strategy without stress. Write down your plan in a notebook or in the app's notes section to stay on track.
+              Your strategy can grow as you learn. For now, keep it simple: buy a small amount, hold it, learn a bit each week, and don&apos;t spend more than you planned. Our app&apos;s easy design, with clear buttons and guides, helps you follow your strategy without stress. Write down your plan in a notebook or in the app&apos;s notes section to stay on track.
             </Text>
           </View>
 
@@ -88,7 +88,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Trading Basics/Fundamental Analysis</Text>
             <Text style={styles.paragraph}>
-              Trading in our app means buying and selling cryptocurrencies to make money or grow your crypto. As a beginner, you'll start with trading basics, which are simple ways to buy and sell. You'll also learn about fundamental analysis, which is a way to decide if a cryptocurrency is worth buying by looking at its value and purpose.
+              Trading in our app means buying and selling cryptocurrencies to make money or grow your crypto. As a beginner, you&apos;ll start with trading basics, which are simple ways to buy and sell. You&apos;ll also learn about fundamental analysis, which is a way to decide if a cryptocurrency is worth buying by looking at its value and purpose.
             </Text>
           </View>
 
@@ -96,7 +96,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Trading Basics</Text>
             <Text style={styles.paragraph}>
-              Let's start with trading basics. In our app, the "Buy Crypto" section lets you buy crypto with regular money, like dollars. You can use the "Convert" feature to swap $10 into Bitcoin instantly at the current price—this is called a market order. Another option is a limit order, where you set a price you want to buy or sell at, and the trade happens when the price matches. You can try this in the "Spot Trading" section, which is like a marketplace for crypto.
+              Let&apos;s start with trading basics. In our app, the &quot;Buy Crypto&quot; section lets you buy crypto with regular money, like dollars. You can use the &quot;Convert&quot; feature to swap $10 into Bitcoin instantly at the current price—this is called a market order. Another option is a limit order, where you set a price you want to buy or sell at, and the trade happens when the price matches. You can try this in the &quot;Spot Trading&quot; section, which is like a marketplace for crypto.
             </Text>
           </View>
 
@@ -104,7 +104,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Timing and Charts</Text>
             <Text style={styles.paragraph}>
-              Trading is about timing. You might buy Bitcoin when its price is low and sell when it's high. Our app's "Markets" section shows price charts to help you see trends. Don't worry about complex charts yet—just look at whether the price is going up or down over a day or week.
+              Trading is about timing. You might buy Bitcoin when its price is low and sell when it&apos;s high. Our app&apos;s &quot;Markets&quot; section shows price charts to help you see trends. Don&apos;t worry about complex charts yet—just look at whether the price is going up or down over a day or week.
             </Text>
           </View>
 
@@ -112,7 +112,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Fundamental Analysis</Text>
             <Text style={styles.paragraph}>
-              Now, let's talk about fundamental analysis. This means checking if a cryptocurrency is a good choice before buying. Ask simple questions: What does this crypto do? Is it popular? For example, Bitcoin is known as digital gold and is widely trusted. Ethereum powers apps like games or finance tools, so it's valuable too. You can read about coins in our app's learning hub or news section to understand their purpose.
+              Now, let&apos;s talk about fundamental analysis. This means checking if a cryptocurrency is a good choice before buying. Ask simple questions: What does this crypto do? Is it popular? For example, Bitcoin is known as digital gold and is widely trusted. Ethereum powers apps like games or finance tools, so it&apos;s valuable too. You can read about coins in our app&apos;s learning hub or news section to understand their purpose.
             </Text>
           </View>
 
@@ -120,7 +120,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Research and Trust</Text>
             <Text style={styles.paragraph}>
-              Look at the team behind the crypto. Is it made by trusted people? Check the app's coin info page for details. Also, see if the crypto is used a lot—Bitcoin and Ethereum are in many wallets, which is a good sign. Avoid coins with no clear use or that sound too good to be true.
+              Look at the team behind the crypto. Is it made by trusted people? Check the app&apos;s coin info page for details. Also, see if the crypto is used a lot—Bitcoin and Ethereum are in many wallets, which is a good sign. Avoid coins with no clear use or that sound too good to be true.
             </Text>
           </View>
 
@@ -128,7 +128,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Using App Features</Text>
             <Text style={styles.paragraph}>
-              Our app makes this easy. Use the "Markets" section to see which coins are popular (high trading volume means more people use it). Start with well-known coins to keep things simple. Don't worry about numbers or math yet—just focus on understanding what the crypto does.
+              Our app makes this easy. Use the &quot;Markets&quot; section to see which coins are popular (high trading volume means more people use it). Start with well-known coins to keep things simple. Don&apos;t worry about numbers or math yet—just focus on understanding what the crypto does.
             </Text>
           </View>
 
@@ -136,7 +136,7 @@ const BitbyLearnDevelopStrategy = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Putting It All Together</Text>
             <Text style={styles.paragraph}>
-              Trading basics and fundamental analysis go together. For example, you might decide Bitcoin is a good buy because it's trusted (fundamental analysis), then use the "Buy Crypto" button to purchase $5 worth (trading basics). Practice small trades and check the app's guides to learn more. This builds your skills safely!
+              Trading basics and fundamental analysis go together. For example, you might decide Bitcoin is a good buy because it&apos;s trusted (fundamental analysis), then use the &quot;Buy Crypto&quot; button to purchase $5 worth (trading basics). Practice small trades and check the app&apos;s guides to learn more. This builds your skills safely!
             </Text>
           </View>
         </View>

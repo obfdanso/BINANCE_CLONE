@@ -31,10 +31,6 @@ services:
         sync: false
       - key: MAIL_PASSWORD
         sync: false
-      - key: TELEGRAM_BOT_USERNAME
-        sync: false
-      - key: TELEGRAM_BOT_TOKEN
-        sync: false
       - key: PAYSTACK_SECRET_KEY
         sync: false
       - key: PAYSTACK_PUBLIC_KEY

@@ -32,7 +32,7 @@ const BitbyLearnTradingMode = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Choose Your Trading Mode</Text>
             <Text style={styles.paragraph}>
-              As an intermediate trader with 1-2 years of experience, you're ready to explore more advanced trading modes in our app, like Margin Trading and Futures Trading. These modes let you trade with more money than you have, but they come with higher risks. Let's break them down so you can choose what works for you, using our app's features.
+              As an intermediate trader with 1-2 years of experience, you&apos;re ready to explore more advanced trading modes in our app, like Margin Trading and Futures Trading. These modes let you trade with more money than you have, but they come with higher risks. Let&apos;s break them down so you can choose what works for you, using our app&apos;s features.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnTradingMode = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Margin Trading</Text>
             <Text style={styles.paragraph}>
-              Margin Trading lets you borrow money from the app to trade bigger amounts. For example, if you have $100, you might borrow $200 more to trade with $300 total. This is called leverage, and our app offers low-leverage options like 3x (three times your money). Go to the "Margin Trading" section, transfer funds from your "Wallet," and choose a coin like Bitcoin (BTC). You can buy or sell, but you'll pay a small fee for borrowing. If the price moves your way, you make more profit, but if it goes against you, losses are bigger too. Start with low leverage to stay safe.
+              Margin Trading lets you borrow money from the app to trade bigger amounts. For example, if you have $100, you might borrow $200 more to trade with $300 total. This is called leverage, and our app offers low-leverage options like 3x (three times your money). Go to the &quot;Margin Trading&quot; section, transfer funds from your &quot;Wallet,&quot; and choose a coin like Bitcoin (BTC). You can buy or sell, but you&apos;ll pay a small fee for borrowing. If the price moves your way, you make more profit, but if it goes against you, losses are bigger too. Start with low leverage to stay safe.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnTradingMode = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Futures Trading</Text>
             <Text style={styles.paragraph}>
-              Futures Trading is about betting on a coin's future price. In our app's "Futures Trading" section, you can choose "Cross" (sharing funds across trades) or "Isolated" (using funds for one trade only) margin modes. For example, with $100, you can use 3x leverage to control a $300 position in Ethereum (ETH). You pick if the price will go up (long) or down (short). If you're right, you earn more; if wrong, you lose more. Futures have daily fees, so check the "Funding Rate" in the app. Use the "Classic" futures interface for simpler controls.
+              Futures Trading is about betting on a coin&apos;s future price. In our app&apos;s &quot;Futures Trading&quot; section, you can choose &quot;Cross&quot; (sharing funds across trades) or &quot;Isolated&quot; (using funds for one trade only) margin modes. For example, with $100, you can use 3x leverage to control a $300 position in Ethereum (ETH). You pick if the price will go up (long) or down (short). If you&apos;re right, you earn more; if wrong, you lose more. Futures have daily fees, so check the &quot;Funding Rate&quot; in the app. Use the &quot;Classic&quot; futures interface for simpler controls.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnTradingMode = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Which Should You Choose?</Text>
             <Text style={styles.paragraph}>
-              Margin Trading is good for holding trades a few days, while Futures Trading suits quick trades based on price predictions. Try Futures with low leverage first, as it's more flexible. Go to "Futures Trading," start with a small amount like $50, and use the app's "Calculator" to see potential profits or losses. Both modes are riskier than spot trading, so only use money you can afford to lose.
+              Margin Trading is good for holding trades a few days, while Futures Trading suits quick trades based on price predictions. Try Futures with low leverage first, as it&apos;s more flexible. Go to &quot;Futures Trading,&quot; start with a small amount like $50, and use the app&apos;s &quot;Calculator&quot; to see potential profits or losses. Both modes are riskier than spot trading, so only use money you can afford to lose.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnTradingMode = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Getting Started</Text>
             <Text style={styles.paragraph}>
-              Our app makes it easy with clear buttons in the "Margin" or "Futures" sections. Check the "Markets" section for price trends before trading, and use "Order History" to track your trades. Read guides in our learning hub (like Binance Academy) to learn more about leverage. Start small, practice, and choose the mode that fits your style!
+              Our app makes it easy with clear buttons in the &quot;Margin&quot; or &quot;Futures&quot; sections. Check the &quot;Markets&quot; section for price trends before trading, and use &quot;Order History&quot; to track your trades. Read guides in our learning hub (like Binance Academy) to learn more about leverage. Start small, practice, and choose the mode that fits your style!
             </Text>
           </View>
         </View>

@@ -243,7 +243,7 @@ export default function P2PSell() {
                     {amount && price && (
                         <View style={styles.calculationDisplay}>
                             <Text style={styles.calculationText}>
-                                You'll receive: <Text style={styles.calculationValue}>${calculatedUSD}</Text>
+                                You&apos;ll receive: <Text style={styles.calculationValue}>${calculatedUSD}</Text>
                             </Text>
                         </View>
                     )}
@@ -311,7 +311,7 @@ export default function P2PSell() {
                                         <Text style={styles.confirmationValue}>{amount} USDT</Text>
                                     </View>
                                     <View style={styles.confirmationRow}>
-                                        <Text style={styles.confirmationLabel}>You'll receive:</Text>
+                                        <Text style={styles.confirmationLabel}>You&apos;ll receive:</Text>
                                         <Text style={styles.confirmationValue}>${calculatedUSD}</Text>
                                     </View>
                                     <View style={styles.confirmationRow}>

@@ -32,7 +32,7 @@ const BitbyLearnCryptocurrencies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Welcome to the world of cryptocurrencies!</Text>
             <Text style={styles.paragraph}>
-              Cryptocurrencies, or "crypto," are digital money that exist only online, not as physical coins or bills. They use special technology called blockchain to keep transactions safe and secure. Think of blockchain like a digital notebook that records every trade or transfer, and no one can change it once it's written.
+              Cryptocurrencies, or &quot;crypto,&quot; are digital money that exist only online, not as physical coins or bills. They use special technology called blockchain to keep transactions safe and secure. Think of blockchain like a digital notebook that records every trade or transfer, and no one can change it once it&apos;s written.
             </Text>
             <Text style={styles.paragraph}>
               Bitcoin (BTC) and Ethereum (ETH) are the most popular cryptocurrencies, but there are thousands of others, like Binance Coin (BNB) or Dogecoin (DOGE).
@@ -43,10 +43,10 @@ const BitbyLearnCryptocurrencies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>How Crypto Works</Text>
             <Text style={styles.paragraph}>
-              Crypto is different from regular money because no bank or government controls it. Instead, it's run by computers all over the world. This makes it fast to send anywhere, but it can also be confusing at first.
+              Crypto is different from regular money because no bank or government controls it. Instead, it&apos;s run by computers all over the world. This makes it fast to send anywhere, but it can also be confusing at first.
             </Text>
             <Text style={styles.paragraph}>
-              In our app, you can buy, sell, or hold crypto in a digital wallet, which is like a bank account for your crypto. You don't need to know everything right away—just start with the basics.
+              In our app, you can buy, sell, or hold crypto in a digital wallet, which is like a bank account for your crypto. You don&apos;t need to know everything right away—just start with the basics.
             </Text>
           </View>
 
@@ -54,10 +54,10 @@ const BitbyLearnCryptocurrencies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Getting Started</Text>
             <Text style={styles.paragraph}>
-              Our app makes it easy to get started. You can buy crypto using regular money (like dollars or euros) through simple buttons like "Buy Crypto." For example, you can spend $10 to get some Bitcoin.
+              Our app makes it easy to get started. You can buy crypto using regular money (like dollars or euros) through simple buttons like &quot;Buy Crypto.&quot; For example, you can spend $10 to get some Bitcoin.
             </Text>
             <Text style={styles.paragraph}>
-              The price of crypto changes a lot, sometimes even in a day, because it depends on what people are willing to pay. This is called volatility, and it's normal in crypto.
+              The price of crypto changes a lot, sometimes even in a day, because it depends on what people are willing to pay. This is called volatility, and it&apos;s normal in crypto.
             </Text>
           </View>
 
@@ -65,10 +65,10 @@ const BitbyLearnCryptocurrencies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Why do people use crypto?</Text>
             <Text style={styles.paragraph}>
-              Some use it to buy things online, others hold it hoping the price goes up, and some trade it to make money. In our app, you'll see sections like "Markets" to check prices and "Wallet" to store your crypto safely.
+              Some use it to buy things online, others hold it hoping the price goes up, and some trade it to make money. In our app, you&apos;ll see sections like &quot;Markets&quot; to check prices and &quot;Wallet&quot; to store your crypto safely.
             </Text>
             <Text style={styles.paragraph}>
-              We also have guides in the app to explain terms like "wallet" or "exchange." Crypto can feel overwhelming, but you don't need to be an expert. Start slow, explore the app, and learn as you go!
+              We also have guides in the app to explain terms like &quot;wallet&quot; or &quot;exchange.&quot; Crypto can feel overwhelming, but you don&apos;t need to be an expert. Start slow, explore the app, and learn as you go!
             </Text>
           </View>
 
@@ -79,10 +79,10 @@ const BitbyLearnCryptocurrencies = () => {
             </View>
             <Text style={styles.warningTitle}>Important Safety Information</Text>
             <Text style={styles.warningText}>
-              Be careful, though—crypto isn't like a savings account. Prices can drop fast, and you could lose money. Only use money you can afford to lose, like extra cash, not your rent or grocery money.
+              Be careful, though—crypto isn&apos;t like a savings account. Prices can drop fast, and you could lose money. Only use money you can afford to lose, like extra cash, not your rent or grocery money.
             </Text>
             <Text style={styles.warningText}>
-              Our app has tools like "Security Settings" to protect your account with passwords and two-factor authentication (2FA), which adds an extra step to log in safely. Take your time to explore and ask questions using our help section. Crypto is exciting, and we're here to guide you every step of the way!
+              Our app has tools like &quot;Security Settings&quot; to protect your account with passwords and two-factor authentication (2FA), which adds an extra step to log in safely. Take your time to explore and ask questions using our help section. Crypto is exciting, and we&apos;re here to guide you every step of the way!
             </Text>
           </View>
         </View>

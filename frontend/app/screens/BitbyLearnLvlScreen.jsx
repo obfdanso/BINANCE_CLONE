@@ -90,7 +90,7 @@ const BitbyLearnLvlScreen = () => {
         <View style={styles.descriptionContainer}>
           <Text style={styles.descriptionTitle}>Choose Your Trading Experience</Text>
           <Text style={styles.descriptionText}>
-            We'll customize your learning journey based on your experience level
+            We&apos;ll customize your learning journey based on your experience level
           </Text>
         </View>
 

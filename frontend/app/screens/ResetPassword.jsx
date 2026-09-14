@@ -117,7 +117,7 @@ export default function ResetPassword() {
                     </View>
                     <Text style={styles.title}>Create New Password</Text>
                     <Text style={styles.subtitle}>
-                        Create a strong password for your account. Make sure it's unique and secure.
+                        Create a strong password for your account. Make sure it&apos;s unique and secure.
                     </Text>
                 </View>
 

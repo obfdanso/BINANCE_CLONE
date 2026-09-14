@@ -32,7 +32,7 @@ const BitbyLearnIntermediateStrategies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Intermediate Trading Strategies</Text>
             <Text style={styles.paragraph}>
-              As an intermediate trader, you can use smarter strategies in our app to improve your trades. These include Technical Analysis, Market Analysis, Risk Management, and Copy Trading. With 1-2 years of experience, you're ready to use these tools to make better decisions. Let's explore how to use them in our app.
+              As an intermediate trader, you can use smarter strategies in our app to improve your trades. These include Technical Analysis, Market Analysis, Risk Management, and Copy Trading. With 1-2 years of experience, you&apos;re ready to use these tools to make better decisions. Let&apos;s explore how to use them in our app.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnIntermediateStrategies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Technical Analysis</Text>
             <Text style={styles.paragraph}>
-              Technical Analysis means using charts to predict price movements. In the "Markets" section, select a coin like Bitcoin (BTC) and view its chart. Look at simple indicators like Moving Averages (lines showing average prices over time). If the price is above the 50-day moving average, it might keep rising. Try the "Classic" view for easier charts. Set "Price Alerts" to know when prices cross key levels, like $40,000 for Bitcoin. Practice spotting patterns, like prices bouncing back after hitting a low point (support).
+              Technical Analysis means using charts to predict price movements. In the &quot;Markets&quot; section, select a coin like Bitcoin (BTC) and view its chart. Look at simple indicators like Moving Averages (lines showing average prices over time). If the price is above the 50-day moving average, it might keep rising. Try the &quot;Classic&quot; view for easier charts. Set &quot;Price Alerts&quot; to know when prices cross key levels, like $40,000 for Bitcoin. Practice spotting patterns, like prices bouncing back after hitting a low point (support).
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnIntermediateStrategies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Market Analysis</Text>
             <Text style={styles.paragraph}>
-              Market Analysis is about understanding what affects prices. Check the app's news section or learning hub for updates, like new laws or big companies buying crypto. For example, if a company supports Ethereum (ETH), its price might rise. Also, look at trading volume in the "Markets" section—high volume means more people are trading, which can signal a trend. Combine this with technical analysis to decide when to buy or sell.
+              Market Analysis is about understanding what affects prices. Check the app&apos;s news section or learning hub for updates, like new laws or big companies buying crypto. For example, if a company supports Ethereum (ETH), its price might rise. Also, look at trading volume in the &quot;Markets&quot; section—high volume means more people are trading, which can signal a trend. Combine this with technical analysis to decide when to buy or sell.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnIntermediateStrategies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Risk Management</Text>
             <Text style={styles.paragraph}>
-              Risk Management keeps your money safe. Never risk more than 1-2% of your account on one trade. For example, if you have $1,000 in your "Wallet," risk only $10-$20 per trade. Use stop-loss orders in the "Spot Trading" or "Futures Trading" sections to automatically sell if a price drops too low (e.g., sell Bitcoin if it falls to $35,000). Diversify by trading two or three coins, like BTC and ETH, to spread risk. Check your "Order History" to review losses and adjust.
+              Risk Management keeps your money safe. Never risk more than 1-2% of your account on one trade. For example, if you have $1,000 in your &quot;Wallet,&quot; risk only $10-$20 per trade. Use stop-loss orders in the &quot;Spot Trading&quot; or &quot;Futures Trading&quot; sections to automatically sell if a price drops too low (e.g., sell Bitcoin if it falls to $35,000). Diversify by trading two or three coins, like BTC and ETH, to spread risk. Check your &quot;Order History&quot; to review losses and adjust.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnIntermediateStrategies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Copy Trading</Text>
             <Text style={styles.paragraph}>
-              Copy Trading lets you follow experienced traders. In our app's "Copy Trading" section (if available, similar to Binance), you can see top traders' strategies and copy their trades with a small amount, like $50. This is great for learning while trading. Choose traders with consistent profits and low-risk styles, shown in their performance stats.
+              Copy Trading lets you follow experienced traders. In our app&apos;s &quot;Copy Trading&quot; section (if available, similar to Binance), you can see top traders&apos; strategies and copy their trades with a small amount, like $50. This is great for learning while trading. Choose traders with consistent profits and low-risk styles, shown in their performance stats.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnIntermediateStrategies = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Using Strategies Together</Text>
             <Text style={styles.paragraph}>
-              Use these strategies together. For example, use technical analysis to find a good buy price, market analysis to confirm the coin's potential, risk management to limit losses, and copy trading to learn from pros. Practice in the "Spot Trading" section with small amounts, and use the app's tools to stay organized and confident.
+              Use these strategies together. For example, use technical analysis to find a good buy price, market analysis to confirm the coin&apos;s potential, risk management to limit losses, and copy trading to learn from pros. Practice in the &quot;Spot Trading&quot; section with small amounts, and use the app&apos;s tools to stay organized and confident.
             </Text>
           </View>
         </View>

@@ -259,7 +259,7 @@ export default function P2PBuy() {
                     {amount && price && (
                         <View style={styles.calculationDisplay}>
                             <Text style={styles.calculationText}>
-                                You'll receive: <Text style={styles.calculationValue}>{calculatedCrypto} {selectedCrypto}</Text>
+                                You&apos;ll receive: <Text style={styles.calculationValue}>{calculatedCrypto} {selectedCrypto}</Text>
                             </Text>
                         </View>
                     )}
@@ -327,7 +327,7 @@ export default function P2PBuy() {
                                         <Text style={styles.confirmationValue}>₵{amount}</Text>
                                     </View>
                                     <View style={styles.confirmationRow}>
-                                        <Text style={styles.confirmationLabel}>You'll receive:</Text>
+                                        <Text style={styles.confirmationLabel}>You&apos;ll receive:</Text>
                                         <Text style={styles.confirmationValue}>{calculatedCrypto} {selectedCrypto}</Text>
                                     </View>
                                     <View style={styles.confirmationRow}>

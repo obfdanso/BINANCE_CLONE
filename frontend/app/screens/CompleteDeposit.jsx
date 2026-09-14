@@ -14,8 +14,6 @@ export default function CompleteDeposit() {
     const router = useRouter();
     const params = useLocalSearchParams();
     const { notifications } = useNotifications();
-    const [showQRModal, setShowQRModal] = useState(false);
-    const [copiedAddress, setCopiedAddress] = useState(false);
     const [amount, setAmount] = useState('');
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -45,15 +43,6 @@ export default function CompleteDeposit() {
         );
         pulseAnimation.start();
     }, []);
-
-
-    const handleCopyAddress = () => {
-        setCopiedAddress(true);
-        setTimeout(() => setCopiedAddress(false), 2000);
-        Alert.alert('Copied!', 'Deposit address copied to clipboard');
-    };
-
-
 
     return (
         <SafeAreaView style={[styles.safeArea, { paddingTop: insets.top + 10 }]}>
@@ -194,32 +183,6 @@ export default function CompleteDeposit() {
             )}
 
             {/* QR Code Modal */}
-            {showQRModal && (
-                <View style={styles.modalOverlay}>
-                    <BlurView intensity={30} tint="dark" style={styles.modalBlur}>
-                        <View style={styles.qrModalContent}>
-                            <View style={styles.qrModalHeader}>
-                                <Text style={styles.qrModalTitle}>Scan QR Code</Text>
-                                <TouchableOpacity onPress={() => setShowQRModal(false)}>
-                                    <Ionicons name="close" size={24} color="#aaa" />
-                                </TouchableOpacity>
-                            </View>
-                            <View style={styles.qrCodeContainer}>
-                                <View style={styles.qrCode}>
-                                    <MaterialCommunityIcons name="qrcode" size={120} color="#fff" />
-                                </View>
-                                <Text style={styles.qrAddressText}>
-                                    bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
-                                </Text>
-                                <TouchableOpacity style={styles.qrCopyButton} onPress={handleCopyAddress}>
-                                    <Ionicons name="copy-outline" size={20} color={GREEN} />
-                                    <Text style={styles.qrCopyButtonText}>Copy Address</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </BlurView>
-                </View>
-            )}
         </SafeAreaView>
     );
 } 

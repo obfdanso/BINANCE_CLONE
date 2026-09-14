@@ -251,19 +251,6 @@ export default function Auth() {
 
                 {/* Social Login Section */}
                 <View style={styles.socialCard}>
-                    <View style={styles.dividerRow}>
-                        <View style={styles.divider} />
-                        <Text style={styles.orWith}>Or continue with</Text>
-                        <View style={styles.divider} />
-                    </View>
-
-                    <TouchableOpacity
-                        style={styles.socialButton}
-                        onPress={() => router.push('/screens/TelegramAuth')}
-                        activeOpacity={0.8}
-                    >
-                        <Text style={styles.socialButtonText}>Continue with Telegram</Text>
-                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </SafeAreaView>

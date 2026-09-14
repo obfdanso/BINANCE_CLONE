@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 import org.springframework.validation.FieldError;
 import project.bitby.bitby.dto.MessageResponse;
 
@@ -161,6 +162,18 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleLockFailure(Exception ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
             .body(new MessageResponse("That account was being updated by another request. Please retry."));
+    }
+
+    /**
+     * An unknown path is a 404, not a server fault. Spring raises
+     * NoResourceFoundException for one, and the catch-all below was turning
+     * that into 500 "An unexpected error occurred" - so a typo in a URL looked
+     * exactly like a crash.
+     */
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<?> handleNoResource(NoResourceFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new MessageResponse("No endpoint at " + ex.getResourcePath()));
     }
 
     @ExceptionHandler(Exception.class)

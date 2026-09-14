@@ -40,7 +40,7 @@ const BitbyLearnStartSmall = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>How to Use Our App</Text>
             <Text style={styles.paragraph}>
-              In our app, you can use the "Buy Crypto" section to start. This lets you turn regular money (like dollars or euros) into crypto, like Bitcoin or Ethereum, with just a few taps. You can use a credit card, bank account, or even apps like PayPal in the "P2P Trading" section, where you buy directly from other people. Start with a small amount, like $5, to see how it feels to own crypto.
+              In our app, you can use the &quot;Buy Crypto&quot; section to start. This lets you turn regular money (like dollars or euros) into crypto, like Bitcoin or Ethereum, with just a few taps. You can use a credit card, bank account, or even apps like PayPal in the &quot;P2P Trading&quot; section, where you buy directly from other people. Start with a small amount, like $5, to see how it feels to own crypto.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnStartSmall = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Why Start Small?</Text>
             <Text style={styles.paragraph}>
-              It helps you learn without risking too much. If the price drops, you won't lose a lot, and if it goes up, you'll see how crypto can grow. Our app's "Wallet" section shows your crypto balance, so you can check what you own anytime. It's like checking your bank account, but for digital money.
+              It helps you learn without risking too much. If the price drops, you won&apos;t lose a lot, and if it goes up, you&apos;ll see how crypto can grow. Our app&apos;s &quot;Wallet&quot; section shows your crypto balance, so you can check what you own anytime. It&apos;s like checking your bank account, but for digital money.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnStartSmall = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Exploring the App</Text>
             <Text style={styles.paragraph}>
-              Starting small also gives you time to explore the app. Try looking at the "Markets" section to see how prices change. You might notice Bitcoin's price moves a lot in a day—that's normal! You can also use the "Binance Academy" section (or our app's learning hub) to watch short videos or read guides about crypto. These explain things like how to store crypto safely or what "market price" means.
+              Starting small also gives you time to explore the app. Try looking at the &quot;Markets&quot; section to see how prices change. You might notice Bitcoin&apos;s price moves a lot in a day—that&apos;s normal! You can also use the &quot;Binance Academy&quot; section (or our app&apos;s learning hub) to watch short videos or read guides about crypto. These explain things like how to store crypto safely or what &quot;market price&quot; means.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnStartSmall = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Practice and Build Confidence</Text>
             <Text style={styles.paragraph}>
-              Don't feel pressured to do big trades right away. Many beginners make the mistake of spending too much too soon and get worried when prices drop. By starting small, you can practice using the app, like sending a tiny amount of crypto to your wallet or selling a small bit back to dollars. Our app makes this easy with clear buttons and instructions.
+              Don&apos;t feel pressured to do big trades right away. Many beginners make the mistake of spending too much too soon and get worried when prices drop. By starting small, you can practice using the app, like sending a tiny amount of crypto to your wallet or selling a small bit back to dollars. Our app makes this easy with clear buttons and instructions.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnStartSmall = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Gift Cards and Gradual Growth</Text>
             <Text style={styles.paragraph}>
-              If you're unsure, try the "Gift Card" section to add a small amount to your account using a Binance Gift Card. It's a simple way to start without linking a bank account. As you get comfortable, you can slowly increase your investment. Starting small builds confidence, and our app is designed to help you learn at your own pace while keeping your money safe.
+              If you&apos;re unsure, try the &quot;Gift Card&quot; section to add a small amount to your account using a Binance Gift Card. It&apos;s a simple way to start without linking a bank account. As you get comfortable, you can slowly increase your investment. Starting small builds confidence, and our app is designed to help you learn at your own pace while keeping your money safe.
             </Text>
           </View>
         </View>

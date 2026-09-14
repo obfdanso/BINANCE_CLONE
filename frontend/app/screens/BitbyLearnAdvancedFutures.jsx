@@ -32,7 +32,7 @@ const BitbyLearnAdvancedFutures = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Advanced Usage of Futures</Text>
             <Text style={styles.paragraph}>
-              As an advanced trader with over 5 years of experience, you can leverage our app's "Futures Trading" section to execute sophisticated strategies with high leverage, maximizing profits while managing risks. Futures trading involves betting on a cryptocurrency's future price, using leverage to amplify your position. Our app, similar to Binance, offers powerful tools to support your advanced approach.
+              As an advanced trader with over 5 years of experience, you can leverage our app&apos;s &quot;Futures Trading&quot; section to execute sophisticated strategies with high leverage, maximizing profits while managing risks. Futures trading involves betting on a cryptocurrency&apos;s future price, using leverage to amplify your position. Our app, similar to Binance, offers powerful tools to support your advanced approach.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnAdvancedFutures = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Getting Started with Advanced Futures</Text>
             <Text style={styles.paragraph}>
-              Start in the "Futures Trading" section and choose between "Cross" or "Isolated" margin modes. Cross margin shares funds across positions for flexibility, while Isolated limits risk to one trade. For example, with $1,000, use 10x leverage to control a $10,000 Bitcoin (BTC) position. Select "USD-M Futures" for stablecoin-based contracts and use the "Advanced" interface for detailed charts and order books.
+              Start in the &quot;Futures Trading&quot; section and choose between &quot;Cross&quot; or &quot;Isolated&quot; margin modes. Cross margin shares funds across positions for flexibility, while Isolated limits risk to one trade. For example, with $1,000, use 10x leverage to control a $10,000 Bitcoin (BTC) position. Select &quot;USD-M Futures&quot; for stablecoin-based contracts and use the &quot;Advanced&quot; interface for detailed charts and order books.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnAdvancedFutures = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Advanced Trading Strategies</Text>
             <Text style={styles.paragraph}>
-              Use advanced strategies like scalping or swing trading. For scalping, make quick trades (e.g., $100 on Ethereum (ETH) with 20x leverage) to capture small price moves, like $50 gains in an hour. Check the "Order Book" to spot tight bid-ask spreads for fast entries and exits. For swing trading, hold positions for days, using the app's "Price Alerts" to track key levels, like BTC at $60,000. Use the "Calculator" to estimate profits and funding fees, which are charged every 8 hours.
+              Use advanced strategies like scalping or swing trading. For scalping, make quick trades (e.g., $100 on Ethereum (ETH) with 20x leverage) to capture small price moves, like $50 gains in an hour. Check the &quot;Order Book&quot; to spot tight bid-ask spreads for fast entries and exits. For swing trading, hold positions for days, using the app&apos;s &quot;Price Alerts&quot; to track key levels, like BTC at $60,000. Use the &quot;Calculator&quot; to estimate profits and funding fees, which are charged every 8 hours.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnAdvancedFutures = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Integrating Automated Trading</Text>
             <Text style={styles.paragraph}>
-              Integrate automated trading via our app's API. Connect a bot to execute high-frequency trades based on your strategy, like buying ETH when it crosses the 20-day EMA. Test your bot with small amounts in "Futures Trading" to ensure accuracy. Monitor funding rates in the app to avoid high costs during volatile markets.
+              Integrate automated trading via our app&apos;s API. Connect a bot to execute high-frequency trades based on your strategy, like buying ETH when it crosses the 20-day EMA. Test your bot with small amounts in &quot;Futures Trading&quot; to ensure accuracy. Monitor funding rates in the app to avoid high costs during volatile markets.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnAdvancedFutures = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Hedging Your Portfolio</Text>
             <Text style={styles.paragraph}>
-              Hedge your portfolio to reduce risk. If you hold $10,000 in BTC in your "Wallet," open a short futures position with 5x leverage to profit if prices fall. Use the "Portfolio Management" section to balance spot and futures positions. Check "Order History" to analyze trade performance and refine strategies.
+              Hedge your portfolio to reduce risk. If you hold $10,000 in BTC in your &quot;Wallet,&quot; open a short futures position with 5x leverage to profit if prices fall. Use the &quot;Portfolio Management&quot; section to balance spot and futures positions. Check &quot;Order History&quot; to analyze trade performance and refine strategies.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnAdvancedFutures = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Advanced Risk Management</Text>
             <Text style={styles.paragraph}>
-              Our app's real-time charts, with indicators like Bollinger Bands or MACD, help you time entries and exits. Advanced futures trading is high-risk, so use only 1-2% of your capital per trade. With tools like API access, detailed order books, and customizable alerts, our app supports your complex futures strategies for maximum efficiency.
+              Our app&apos;s real-time charts, with indicators like Bollinger Bands or MACD, help you time entries and exits. Advanced futures trading is high-risk, so use only 1-2% of your capital per trade. With tools like API access, detailed order books, and customizable alerts, our app supports your complex futures strategies for maximum efficiency.
             </Text>
           </View>
         </View>

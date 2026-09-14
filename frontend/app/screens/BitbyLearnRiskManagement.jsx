@@ -32,7 +32,7 @@ const BitbyLearnRiskManagement = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Risk Management</Text>
             <Text style={styles.paragraph}>
-              Risk management means keeping your money safe while using crypto in our app. Crypto prices can change fast, and you could lose money if you're not careful. As a beginner, you can use simple steps to lower risks and feel more confident while trading or holding crypto.
+              Risk management means keeping your money safe while using crypto in our app. Crypto prices can change fast, and you could lose money if you&apos;re not careful. As a beginner, you can use simple steps to lower risks and feel more confident while trading or holding crypto.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnRiskManagement = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>The First Rule</Text>
             <Text style={styles.paragraph}>
-              The first rule is to only use money you can afford to lose. Crypto is exciting, but it's not like a bank account—prices can drop suddenly. For example, if you have $100 extra cash, use $10 for crypto, not your rent money. Our app's "Buy Crypto" section lets you set small amounts, like $5 or $10, to start safely.
+              The first rule is to only use money you can afford to lose. Crypto is exciting, but it&apos;s not like a bank account—prices can drop suddenly. For example, if you have $100 extra cash, use $10 for crypto, not your rent money. Our app&apos;s &quot;Buy Crypto&quot; section lets you set small amounts, like $5 or $10, to start safely.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnRiskManagement = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Choosing Safe Cryptocurrencies</Text>
             <Text style={styles.paragraph}>
-              Another way to manage risk is to start with well-known cryptocurrencies, like Bitcoin (BTC) or Ethereum (ETH). These are less likely to lose all their value compared to smaller, unknown coins. You can find these in the "Markets" section, where popular coins are listed at the top.
+              Another way to manage risk is to start with well-known cryptocurrencies, like Bitcoin (BTC) or Ethereum (ETH). These are less likely to lose all their value compared to smaller, unknown coins. You can find these in the &quot;Markets&quot; section, where popular coins are listed at the top.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnRiskManagement = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Diversification</Text>
             <Text style={styles.paragraph}>
-              Don't put all your money in one crypto—this is called diversification. If you have $20, maybe buy $10 of Bitcoin and $10 of Ethereum. This way, if one coin's price drops, the other might still do okay. Our app's "Wallet" shows all your coins, so you can see your balance easily.
+              Don&apos;t put all your money in one crypto—this is called diversification. If you have $20, maybe buy $10 of Bitcoin and $10 of Ethereum. This way, if one coin&apos;s price drops, the other might still do okay. Our app&apos;s &quot;Wallet&quot; shows all your coins, so you can see your balance easily.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnRiskManagement = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Setting Limits</Text>
             <Text style={styles.paragraph}>
-              Set limits on your trades. For example, decide you'll only spend $20 a month on crypto. Stick to this plan, even if prices are going up and you're excited. Our app lets you deposit small amounts so you don't overspend. You can also set "Price Alerts" to know when a coin's price changes, so you don't have to watch it all day.
+              Set limits on your trades. For example, decide you&apos;ll only spend $20 a month on crypto. Stick to this plan, even if prices are going up and you&apos;re excited. Our app lets you deposit small amounts so you don&apos;t overspend. You can also set &quot;Price Alerts&quot; to know when a coin&apos;s price changes, so you don&apos;t have to watch it all day.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnRiskManagement = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Protect Your Account</Text>
             <Text style={styles.paragraph}>
-              Protect your account to avoid losing your crypto to hackers. Use the "Security Settings" in our app to turn on two-factor authentication (2FA). This means you'll need a code from your phone to log in, making your account safer. Also, never share your password or account details with anyone.
+              Protect your account to avoid losing your crypto to hackers. Use the &quot;Security Settings&quot; in our app to turn on two-factor authentication (2FA). This means you&apos;ll need a code from your phone to log in, making your account safer. Also, never share your password or account details with anyone.
             </Text>
           </View>
 
@@ -80,7 +80,7 @@ const BitbyLearnRiskManagement = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Be Patient</Text>
             <Text style={styles.paragraph}>
-              Finally, be patient. Crypto prices can go up and down in hours. Don't panic if your $10 of Bitcoin drops to $8—it might go up later. Check your "Wallet" weekly, not hourly, to avoid stress. Our app has tools and guides to help you stay calm and make smart choices while keeping risks low.
+              Finally, be patient. Crypto prices can go up and down in hours. Don&apos;t panic if your $10 of Bitcoin drops to $8—it might go up later. Check your &quot;Wallet&quot; weekly, not hourly, to avoid stress. Our app has tools and guides to help you stay calm and make smart choices while keeping risks low.
             </Text>
           </View>
         </View>

@@ -32,7 +32,7 @@ const BitbyLearnOpeningFirstTrade = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Open Your First Trade</Text>
             <Text style={styles.paragraph}>
-              Opening your first trade in our app is exciting and easy! A trade is when you buy or sell cryptocurrency, like Bitcoin or Ethereum, using our app's tools. As a beginner, we'll guide you through the steps to make your first trade simple and safe, so you can start with confidence.
+              Opening your first trade in our app is exciting and easy! A trade is when you buy or sell cryptocurrency, like Bitcoin or Ethereum, using our app&apos;s tools. As a beginner, we&apos;ll guide you through the steps to make your first trade simple and safe, so you can start with confidence.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnOpeningFirstTrade = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Step 1: Add Money to Your Account</Text>
             <Text style={styles.paragraph}>
-              First, make sure you have money in your account. Go to the "Buy Crypto" section and choose "Deposit" to add money using a credit card, bank transfer, or even a Binance Gift Card. Start small, like $10, to keep things low-risk. This money goes to your app's "Wallet," where you can use it to trade.
+              First, make sure you have money in your account. Go to the &quot;Buy Crypto&quot; section and choose &quot;Deposit&quot; to add money using a credit card, bank transfer, or even a Binance Gift Card. Start small, like $10, to keep things low-risk. This money goes to your app&apos;s &quot;Wallet,&quot; where you can use it to trade.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnOpeningFirstTrade = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Step 2: Make Your First Trade</Text>
             <Text style={styles.paragraph}>
-              Now, let's open a trade. Go to the "Buy Crypto" section and select "Convert." This is the easiest way to trade as a beginner. Choose a cryptocurrency, like Bitcoin (BTC), and enter how much you want to buy, like $10. The app shows you how much Bitcoin you'll get based on the current price. Tap "Confirm," and you've made your first trade! The Bitcoin goes to your "Wallet."
+              Now, let&apos;s open a trade. Go to the &quot;Buy Crypto&quot; section and select &quot;Convert.&quot; This is the easiest way to trade as a beginner. Choose a cryptocurrency, like Bitcoin (BTC), and enter how much you want to buy, like $10. The app shows you how much Bitcoin you&apos;ll get based on the current price. Tap &quot;Confirm,&quot; and you&apos;ve made your first trade! The Bitcoin goes to your &quot;Wallet.&quot;
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnOpeningFirstTrade = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Step 3: Try Spot Trading</Text>
             <Text style={styles.paragraph}>
-              If you want to try another way, go to the "Spot Trading" section. This is like a marketplace where you can buy or sell crypto. Choose a coin, like Ethereum (ETH), and select "Market" to buy at the current price. Enter a small amount, like $5, and tap "Buy." It's that simple! The app shows you the price and confirms the trade instantly.
+              If you want to try another way, go to the &quot;Spot Trading&quot; section. This is like a marketplace where you can buy or sell crypto. Choose a coin, like Ethereum (ETH), and select &quot;Market&quot; to buy at the current price. Enter a small amount, like $5, and tap &quot;Buy.&quot; It&apos;s that simple! The app shows you the price and confirms the trade instantly.
             </Text>
           </View>
 
@@ -64,15 +64,15 @@ const BitbyLearnOpeningFirstTrade = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Step 4: Check Prices First</Text>
             <Text style={styles.paragraph}>
-              Before trading, check the "Markets" section to see the price of your chosen coin. Prices change fast, so don't worry if it's different in a few minutes. For your first trade, stick to popular coins like Bitcoin or Ethereum—they're safer for beginners. You can read about them in our app's learning hub to understand why they're trusted.
+              Before trading, check the &quot;Markets&quot; section to see the price of your chosen coin. Prices change fast, so don&apos;t worry if it&apos;s different in a few minutes. For your first trade, stick to popular coins like Bitcoin or Ethereum—they&apos;re safer for beginners. You can read about them in our app&apos;s learning hub to understand why they&apos;re trusted.
             </Text>
           </View>
 
           {/* Take Your Time */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Step 5: Don't Rush</Text>
+            <Text style={styles.sectionTitle}>Step 5: Don&apos;t Rush</Text>
             <Text style={styles.paragraph}>
-              Don't rush. If you're nervous, practice with a tiny amount, like $5, to see how it works. Our app's clear buttons and instructions make it easy to follow along. After your trade, check your "Wallet" to see your new crypto balance. You did it!
+              Don&apos;t rush. If you&apos;re nervous, practice with a tiny amount, like $5, to see how it works. Our app&apos;s clear buttons and instructions make it easy to follow along. After your trade, check your &quot;Wallet&quot; to see your new crypto balance. You did it!
             </Text>
           </View>
 
@@ -80,7 +80,7 @@ const BitbyLearnOpeningFirstTrade = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Step 6: Selling Your Crypto</Text>
             <Text style={styles.paragraph}>
-              If you want to sell later, go back to "Convert" or "Spot Trading" and choose "Sell." The app will guide you to turn your crypto back into dollars or another currency. For now, enjoy your first trade and explore the app's features, like "Price Alerts," to learn more about crypto.
+              If you want to sell later, go back to &quot;Convert&quot; or &quot;Spot Trading&quot; and choose &quot;Sell.&quot; The app will guide you to turn your crypto back into dollars or another currency. For now, enjoy your first trade and explore the app&apos;s features, like &quot;Price Alerts,&quot; to learn more about crypto.
             </Text>
           </View>
         </View>

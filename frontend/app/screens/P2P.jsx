@@ -459,7 +459,7 @@ export default function P2P() {
                             </View>
                             <Text style={styles.modalTitle}>No Available Assets</Text>
                             <Text style={styles.modalText}>
-                                You don't have any assets to sell. Please deposit or buy some cryptocurrencies first to start selling on P2P.
+                                You don&apos;t have any assets to sell. Please deposit or buy some cryptocurrencies first to start selling on P2P.
                             </Text>
                             <View style={styles.modalButtons}>
                                 <TouchableOpacity

@@ -111,39 +111,11 @@ export default function SignIn() {
                     </TouchableOpacity>
 
                     {/* Sign In Button */}
-                    <TouchableOpacity
-                        style={[styles.signInButton, loading && styles.signInButtonDisabled]}
-                        onPress={handleSignIn}
-                        activeOpacity={0.8}
-                        disabled={loading}
-                    >
-                        <Text style={styles.signInButtonText}>
-                            {loading ? 'Signing In...' : 'Sign In'}
-                        </Text>
-                        {!loading && <Ionicons name="arrow-forward" size={20} color="#fff" />}
-                    </TouchableOpacity>
-                </View>
-
-                {/* Social Login Section */}
-                <View style={styles.socialCard}>
-                    <View style={styles.dividerRow}>
-                        <View style={styles.divider} />
-                        <Text style={styles.orWith}>Or continue with</Text>
-                        <View style={styles.divider} />
-                    </View>
-
-                    <TouchableOpacity
-                        style={styles.socialButton}
-                        onPress={() => router.push('/screens/TelegramAuth')}
-                        activeOpacity={0.8}
-                    >
-                        <Text style={styles.socialButtonText}>Continue with Telegram</Text>
-                    </TouchableOpacity>
                 </View>
 
                 {/* Bottom Sign Up Link */}
                 <View style={styles.bottomRow}>
-                    <Text style={styles.bottomText}>Don't have an account? </Text>
+                    <Text style={styles.bottomText}>Don&apos;t have an account? </Text>
                     <TouchableOpacity onPress={() => router.push('/screens/SignUp')}>
                         <Text style={styles.bottomLink}>Sign up</Text>
                     </TouchableOpacity>

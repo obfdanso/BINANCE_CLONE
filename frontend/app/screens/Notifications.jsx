@@ -72,7 +72,7 @@ export default function Notifications() {
                             <Ionicons name="notifications-off" size={iconSize.xl} color={GRAY} />
                         </View>
                         <Text style={styles.caughtUpTitle}>All Caught Up!</Text>
-                        <Text style={styles.caughtUpText}>You've read all your notifications</Text>
+                        <Text style={styles.caughtUpText}>You&apos;ve read all your notifications</Text>
                     </View>
                 )}
                 {/* Notification Card Section - Unread */}

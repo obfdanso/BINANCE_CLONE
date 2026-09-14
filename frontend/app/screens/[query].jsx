@@ -53,7 +53,7 @@ export default function SearchResults() {
             </View>
             {/* Description box */}
             <View style={styles.descriptionBox}>
-                <Text style={styles.descriptionText}>Showing results for "{searchText}"</Text>
+                <Text style={styles.descriptionText}>Showing results for &quot;{searchText}&quot;</Text>
             </View>
             <ScrollView contentContainerStyle={{ paddingBottom: 32 }} showsVerticalScrollIndicator={false}>
                 <View style={styles.resultsSection}>

@@ -94,7 +94,7 @@ export default function DisableAccount() {
                 {/* Confirm Disable Card */}
                 <View style={styles.card}>
                     <Text style={styles.sectionTitle}>Confirm Account Disable</Text>
-                    <Text style={styles.sectionDesc}>Type "disable" to confirm you want to disable your account</Text>
+                    <Text style={styles.sectionDesc}>Type &quot;disable&quot; to confirm you want to disable your account</Text>
                     <TextInput
                         style={styles.input}
                         value={confirm}

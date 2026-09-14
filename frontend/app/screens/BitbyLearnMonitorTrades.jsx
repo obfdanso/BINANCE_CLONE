@@ -32,7 +32,7 @@ const BitbyLearnMonitorTrades = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Monitor Trades</Text>
             <Text style={styles.paragraph}>
-              Monitoring trades means checking on the cryptocurrencies you've bought or sold in our app to see how they're doing. As a beginner, you don't need to watch your trades all day, but keeping an eye on them helps you learn and stay in control. Our app makes this easy with simple tools and clear displays.
+              Monitoring trades means checking on the cryptocurrencies you&apos;ve bought or sold in our app to see how they&apos;re doing. As a beginner, you don&apos;t need to watch your trades all day, but keeping an eye on them helps you learn and stay in control. Our app makes this easy with simple tools and clear displays.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnMonitorTrades = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Check Your Wallet</Text>
             <Text style={styles.paragraph}>
-              After you make a trade, like buying $10 of Bitcoin in the "Buy Crypto" section, your crypto goes to your "Wallet." Go to the "Wallet" section to see your balance. It shows how much Bitcoin you own and its current value in dollars. For example, if Bitcoin's price goes up, your $10 might now be worth $11. If it goes down, it might be $9. This is normal in crypto.
+              After you make a trade, like buying $10 of Bitcoin in the &quot;Buy Crypto&quot; section, your crypto goes to your &quot;Wallet.&quot; Go to the &quot;Wallet&quot; section to see your balance. It shows how much Bitcoin you own and its current value in dollars. For example, if Bitcoin&apos;s price goes up, your $10 might now be worth $11. If it goes down, it might be $9. This is normal in crypto.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnMonitorTrades = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>How Often to Check</Text>
             <Text style={styles.paragraph}>
-              Check your trades once or twice a week, not every hour. Prices change a lot, and watching too often can make you worried or excited, leading to bad choices. Our app's "Markets" section shows price charts for your coins. Look at the simple chart to see if the price is going up or down over a week. Don't stress about small changes.
+              Check your trades once or twice a week, not every hour. Prices change a lot, and watching too often can make you worried or excited, leading to bad choices. Our app&apos;s &quot;Markets&quot; section shows price charts for your coins. Look at the simple chart to see if the price is going up or down over a week. Don&apos;t stress about small changes.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnMonitorTrades = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Set Price Alerts</Text>
             <Text style={styles.paragraph}>
-              You can set "Price Alerts" in the app to get a notification if a coin's price hits a certain level. For example, set an alert if Bitcoin goes above $40,000 or below $30,000. This way, you don't have to check constantly. The app sends a message to your phone, so you can relax and check only when needed.
+              You can set &quot;Price Alerts&quot; in the app to get a notification if a coin&apos;s price hits a certain level. For example, set an alert if Bitcoin goes above $40,000 or below $30,000. This way, you don&apos;t have to check constantly. The app sends a message to your phone, so you can relax and check only when needed.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnMonitorTrades = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Use Order History</Text>
             <Text style={styles.paragraph}>
-              The "Order History" section is another great tool. It shows all your past trades, like when you bought $10 of Ethereum or sold $5 of Bitcoin. This helps you remember what you did and see if your trades are working out. For example, you might notice you bought Bitcoin at $35,000, and now it's $36,000—nice job!
+              The &quot;Order History&quot; section is another great tool. It shows all your past trades, like when you bought $10 of Ethereum or sold $5 of Bitcoin. This helps you remember what you did and see if your trades are working out. For example, you might notice you bought Bitcoin at $35,000, and now it&apos;s $36,000—nice job!
             </Text>
           </View>
 
@@ -72,15 +72,15 @@ const BitbyLearnMonitorTrades = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Holding vs Trading</Text>
             <Text style={styles.paragraph}>
-              If you're holding crypto for a long time, monitoring is simple—just check your "Wallet" weekly to see your balance. If you're trading more, use the "Spot Trading" section to see live prices and decide if you want to buy or sell more. Our app's clear design makes it easy to find these sections.
+              If you&apos;re holding crypto for a long time, monitoring is simple—just check your &quot;Wallet&quot; weekly to see your balance. If you&apos;re trading more, use the &quot;Spot Trading&quot; section to see live prices and decide if you want to buy or sell more. Our app&apos;s clear design makes it easy to find these sections.
             </Text>
           </View>
 
           {/* Stay Calm */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Don't Panic</Text>
+            <Text style={styles.sectionTitle}>Don&apos;t Panic</Text>
             <Text style={styles.paragraph}>
-              Don't panic if prices drop. Crypto is up and down, and small losses are part of learning. Use our app's learning hub to read tips on staying calm and monitoring smartly. By checking your trades regularly but not obsessively, you'll learn how crypto works and feel more confident.
+              Don&apos;t panic if prices drop. Crypto is up and down, and small losses are part of learning. Use our app&apos;s learning hub to read tips on staying calm and monitoring smartly. By checking your trades regularly but not obsessively, you&apos;ll learn how crypto works and feel more confident.
             </Text>
           </View>
         </View>

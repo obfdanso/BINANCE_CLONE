@@ -540,7 +540,7 @@ export default function Convert() {
                                 </View>
                                 <Text style={styles.noCoinModalTitle}>No Coin Selected</Text>
                                 <Text style={styles.noCoinModalText}>
-                                    Please select a "From" coin first to view its performance data.
+                                    Please select a &quot;From&quot; coin first to view its performance data.
                                 </Text>
                             </View>
                             <TouchableOpacity

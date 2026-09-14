@@ -114,7 +114,7 @@ export default function DeleteAccount() {
                 {/* Confirm Delete Card */}
                 <View style={styles.card}>
                     <Text style={styles.sectionTitle}>Confirm Account Deletion</Text>
-                    <Text style={styles.sectionDesc}>Type "delete" to confirm you want to permanently delete your account</Text>
+                    <Text style={styles.sectionDesc}>Type &quot;delete&quot; to confirm you want to permanently delete your account</Text>
                     <TextInput
                         style={styles.input}
                         value={confirmDelete}

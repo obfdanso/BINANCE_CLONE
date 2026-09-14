@@ -32,7 +32,7 @@ const BitbyLearnEmotionalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Emotional Trading</Text>
             <Text style={styles.paragraph}>
-              Emotional trading is when you buy or sell crypto because of feelings, like excitement or fear, instead of a plan. As a beginner in our app, it's easy to get emotional because crypto prices move fast. Learning to stay calm helps you make better choices and avoid mistakes.
+              Emotional trading is when you buy or sell crypto because of feelings, like excitement or fear, instead of a plan. As a beginner in our app, it&apos;s easy to get emotional because crypto prices move fast. Learning to stay calm helps you make better choices and avoid mistakes.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnEmotionalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Understanding Emotional Decisions</Text>
             <Text style={styles.paragraph}>
-              Imagine you buy $10 of Bitcoin in our app's "Buy Crypto" section. The price jumps to $12, and you're excited to buy more. Or it drops to $8, and you're scared to lose money, so you sell quickly. These are emotional decisions, and they can lead to losses. Our app is designed to help you stay steady.
+              Imagine you buy $10 of Bitcoin in our app&apos;s &quot;Buy Crypto&quot; section. The price jumps to $12, and you&apos;re excited to buy more. Or it drops to $8, and you&apos;re scared to lose money, so you sell quickly. These are emotional decisions, and they can lead to losses. Our app is designed to help you stay steady.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnEmotionalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Follow a Simple Plan</Text>
             <Text style={styles.paragraph}>
-              To avoid emotional trading, follow a simple plan. For example, decide to buy $10 of Ethereum every month and hold it, no matter what the price does. This is called a strategy, and you can set it up in the "Buy Crypto" section. Stick to your plan, even if prices are going up or down fast.
+              To avoid emotional trading, follow a simple plan. For example, decide to buy $10 of Ethereum every month and hold it, no matter what the price does. This is called a strategy, and you can set it up in the &quot;Buy Crypto&quot; section. Stick to your plan, even if prices are going up or down fast.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnEmotionalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Avoid Constant Price Checking</Text>
             <Text style={styles.paragraph}>
-              Another tip is to avoid checking prices all the time. Constantly looking at the "Markets" section can make you nervous if prices drop or greedy if they rise. Instead, check your "Wallet" once a week. Our app also has "Price Alerts" you can set to notify you only when a price hits a certain level, so you don't need to watch constantly.
+              Another tip is to avoid checking prices all the time. Constantly looking at the &quot;Markets&quot; section can make you nervous if prices drop or greedy if they rise. Instead, check your &quot;Wallet&quot; once a week. Our app also has &quot;Price Alerts&quot; you can set to notify you only when a price hits a certain level, so you don&apos;t need to watch constantly.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnEmotionalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Take Breaks When Emotional</Text>
             <Text style={styles.paragraph}>
-              When you feel emotional, take a break. If Bitcoin's price crashes and you're worried, don't sell right away. Step away, read a guide in our app's learning hub, or take a walk. Prices often recover, and our app's charts in the "Markets" section can show you how prices change over time, not just one day.
+              When you feel emotional, take a break. If Bitcoin&apos;s price crashes and you&apos;re worried, don&apos;t sell right away. Step away, read a guide in our app&apos;s learning hub, or take a walk. Prices often recover, and our app&apos;s charts in the &quot;Markets&quot; section can show you how prices change over time, not just one day.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnEmotionalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Talk to Yourself Like a Friend</Text>
             <Text style={styles.paragraph}>
-              Talk to yourself like a friend. Ask, "Would I tell a friend to sell everything because the price dropped?" Probably not. Use our app's "Order History" to see your past trades and remind yourself why you bought the crypto. This helps you stay calm and focused.
+              Talk to yourself like a friend. Ask, &quot;Would I tell a friend to sell everything because the price dropped?&quot; Probably not. Use our app&apos;s &quot;Order History&quot; to see your past trades and remind yourself why you bought the crypto. This helps you stay calm and focused.
             </Text>
           </View>
 
@@ -80,7 +80,7 @@ const BitbyLearnEmotionalTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Learn from Small Mistakes</Text>
             <Text style={styles.paragraph}>
-              Finally, learn from small mistakes. If you buy $5 of a coin and lose $1 because you sold too soon, that's okay—it's a lesson. Our app's simple design, with clear buttons and guides, helps you stay in control. By avoiding emotional trading, you'll make smarter choices and enjoy crypto more.
+              Finally, learn from small mistakes. If you buy $5 of a coin and lose $1 because you sold too soon, that&apos;s okay—it&apos;s a lesson. Our app&apos;s simple design, with clear buttons and guides, helps you stay in control. By avoiding emotional trading, you&apos;ll make smarter choices and enjoy crypto more.
             </Text>
           </View>
         </View>

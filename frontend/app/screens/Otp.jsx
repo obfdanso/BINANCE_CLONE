@@ -20,7 +20,6 @@ export default function Otp() {
     const inputs = useRef([]);
 
     // Check authentication method
-    const isTelegramAuth = params.authMethod === 'telegram';
     const isPasswordReset = params.authMethod === 'passwordReset';
     const email = params.email;
 
@@ -125,11 +124,9 @@ export default function Otp() {
                     </View>
                     <Text style={styles.title}>Verify Your Account</Text>
                     <Text style={styles.subtitle}>
-                        {isTelegramAuth
-                            ? 'Enter the OTP we\'ve sent to your Telegram'
-                            : isPasswordReset
-                                ? 'Enter the reset code we\'ve sent to your email'
-                                : 'Enter the verification code we\'ve sent to your email'
+                        {isPasswordReset
+                            ? "Enter the reset code we've sent to your email"
+                            : "Enter the verification code we've sent to your email"
                         }
                     </Text>
                 </View>
@@ -165,7 +162,7 @@ export default function Otp() {
                     {/* Resend Code */}
                     <TouchableOpacity style={styles.resendButton} onPress={handleResend}>
                         <Text style={styles.resendText}>
-                            {isTelegramAuth ? 'Resend Telegram code' : (isPasswordReset ? 'Resend reset code' : 'Resend code')}
+                            {isPasswordReset ? 'Resend reset code' : 'Resend code'}
                         </Text>
                     </TouchableOpacity>
                 </View>

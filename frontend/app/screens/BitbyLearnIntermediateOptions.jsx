@@ -51,7 +51,7 @@ const BitbyLearnIntermediateOptions = () => {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Welcome Section */}
         <View style={styles.welcomeSection}>
-          <Text style={styles.welcomeTitle}>Welcome to BitbyLearn Intermediate's Page</Text>
+          <Text style={styles.welcomeTitle}>Welcome to BitbyLearn Intermediate&apos;s Page</Text>
           <Text style={styles.welcomeSubtitle}>Select an option to continue:</Text>
         </View>
 

@@ -32,7 +32,7 @@ const BitbyLearnMarginTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Margin Trading</Text>
             <Text style={styles.paragraph}>
-              With over 5 years of trading experience, you can use our app's "Margin Trading" section to amplify returns by borrowing funds, employing advanced strategies like leveraged long/short positions or portfolio hedging. Margin trading lets you trade with more money than you have, but it requires precision to manage risks. Our app, like Binance, offers robust tools for advanced margin trading.
+              With over 5 years of trading experience, you can use our app&apos;s &quot;Margin Trading&quot; section to amplify returns by borrowing funds, employing advanced strategies like leveraged long/short positions or portfolio hedging. Margin trading lets you trade with more money than you have, but it requires precision to manage risks. Our app, like Binance, offers robust tools for advanced margin trading.
             </Text>
           </View>
 
@@ -40,7 +40,7 @@ const BitbyLearnMarginTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Getting Started with Margin Trading</Text>
             <Text style={styles.paragraph}>
-              In the "Margin Trading" section, transfer funds from your "Wallet" to a margin account. Choose "Cross Margin" to share borrowed funds across trades or "Isolated Margin" to limit risk to one position. For example, with $2,000, use 10x leverage to control a $20,000 position in Ethereum (ETH). Select a trading pair like ETH/USDT and use the "Advanced" interface for detailed charts and order books.
+              In the &quot;Margin Trading&quot; section, transfer funds from your &quot;Wallet&quot; to a margin account. Choose &quot;Cross Margin&quot; to share borrowed funds across trades or &quot;Isolated Margin&quot; to limit risk to one position. For example, with $2,000, use 10x leverage to control a $20,000 position in Ethereum (ETH). Select a trading pair like ETH/USDT and use the &quot;Advanced&quot; interface for detailed charts and order books.
             </Text>
           </View>
 
@@ -48,7 +48,7 @@ const BitbyLearnMarginTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Advanced Margin Strategies</Text>
             <Text style={styles.paragraph}>
-              Execute strategies like pair trading. If you believe Bitcoin (BTC) will outperform Binance Coin (BNB), go long on BTC/USDT and short BNB/USDT with 5x leverage each. Monitor correlations in the "Markets" section to confirm your thesis. Use the "Order Book" to spot liquidity for quick entries and exits, minimizing slippage.
+              Execute strategies like pair trading. If you believe Bitcoin (BTC) will outperform Binance Coin (BNB), go long on BTC/USDT and short BNB/USDT with 5x leverage each. Monitor correlations in the &quot;Markets&quot; section to confirm your thesis. Use the &quot;Order Book&quot; to spot liquidity for quick entries and exits, minimizing slippage.
             </Text>
           </View>
 
@@ -56,7 +56,7 @@ const BitbyLearnMarginTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Hedging Spot Holdings</Text>
             <Text style={styles.paragraph}>
-              Hedge spot holdings to protect your portfolio. If you own $10,000 in ETH in your "Wallet," borrow funds to short ETH in "Margin Trading" to offset potential losses if prices drop. Adjust leverage dynamically based on market volatility, shown in the app's "Markets" charts. Use low leverage (3x-5x) in choppy markets to avoid liquidations.
+              Hedge spot holdings to protect your portfolio. If you own $10,000 in ETH in your &quot;Wallet,&quot; borrow funds to short ETH in &quot;Margin Trading&quot; to offset potential losses if prices drop. Adjust leverage dynamically based on market volatility, shown in the app&apos;s &quot;Markets&quot; charts. Use low leverage (3x-5x) in choppy markets to avoid liquidations.
             </Text>
           </View>
 
@@ -64,7 +64,7 @@ const BitbyLearnMarginTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Integrating Automation</Text>
             <Text style={styles.paragraph}>
-              Integrate margin trading with our app's API for automation. Set up a bot to monitor price spreads and execute trades when conditions align, like buying BTC at a support level. Test with small amounts to avoid errors. Check "Margin Levels" in the app to ensure your account stays above the liquidation threshold.
+              Integrate margin trading with our app&apos;s API for automation. Set up a bot to monitor price spreads and execute trades when conditions align, like buying BTC at a support level. Test with small amounts to avoid errors. Check &quot;Margin Levels&quot; in the app to ensure your account stays above the liquidation threshold.
             </Text>
           </View>
 
@@ -72,7 +72,7 @@ const BitbyLearnMarginTrading = () => {
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Risk Management & Fees</Text>
             <Text style={styles.paragraph}>
-              Pay attention to borrowing fees, updated daily in the "Margin Trading" section. Use "Order History" to track performance and optimize your strategy. Combine margin trades with stop-loss orders to limit losses, set via the app's order panel. With tools like real-time charts, API access, and portfolio tracking, our app empowers you to execute complex margin strategies effectively.
+              Pay attention to borrowing fees, updated daily in the &quot;Margin Trading&quot; section. Use &quot;Order History&quot; to track performance and optimize your strategy. Combine margin trades with stop-loss orders to limit losses, set via the app&apos;s order panel. With tools like real-time charts, API access, and portfolio tracking, our app empowers you to execute complex margin strategies effectively.
             </Text>
           </View>
         </View>

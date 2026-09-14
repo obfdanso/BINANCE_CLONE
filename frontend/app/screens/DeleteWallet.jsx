@@ -150,7 +150,7 @@ export default function DeleteWallet() {
                         <View style={styles.confirmationBox}>
                             <Ionicons name="alert-circle-outline" size={24} color={RED} />
                             <Text style={styles.confirmationText}>
-                                Are you absolutely sure you want to delete your wallet "{walletName}"? This action cannot be undone.
+                                Are you absolutely sure you want to delete your wallet &quot;{walletName}&quot;? This action cannot be undone.
                             </Text>
                         </View>
                     </View>
