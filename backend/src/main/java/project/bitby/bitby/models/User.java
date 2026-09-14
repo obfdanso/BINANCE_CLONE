@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -52,13 +53,35 @@ public class User {
     @Version
     private Long version;
 
-    private Double cediBalance = 0.0;
-    
-    private Double btcBalance = 0.0;
-    private Double usdtBalance = 0.0;
-    private Double usdBalance = 0.0;
-    private Double ethBalance = 0.0;
-    private Double bnbBalance = 0.0;
+    /*
+     * Balances are BigDecimal, not double.
+     *
+     * As doubles these produced values like 749.6610000000001 after ordinary
+     * arithmetic, because a binary fraction cannot represent most decimal
+     * amounts exactly. The error compounds across trades and leaves totals
+     * that do not reconcile.
+     *
+     * The columns are numeric(36,18): enough integer room for cedi balances in
+     * the billions, and 18 decimal places, which covers a satoshi (8) and wei
+     * (18).
+     */
+    @Column(precision = 36, scale = 18)
+    private BigDecimal cediBalance = BigDecimal.ZERO;
+
+    @Column(precision = 36, scale = 18)
+    private BigDecimal btcBalance = BigDecimal.ZERO;
+
+    @Column(precision = 36, scale = 18)
+    private BigDecimal usdtBalance = BigDecimal.ZERO;
+
+    @Column(precision = 36, scale = 18)
+    private BigDecimal usdBalance = BigDecimal.ZERO;
+
+    @Column(precision = 36, scale = 18)
+    private BigDecimal ethBalance = BigDecimal.ZERO;
+
+    @Column(precision = 36, scale = 18)
+    private BigDecimal bnbBalance = BigDecimal.ZERO;
 
     /**
      * Balances live in one column per asset, so reading or writing one by
@@ -69,22 +92,22 @@ public class User {
      * Returns null for an asset this account cannot hold, which callers should
      * treat as unsupported rather than as a zero balance.
      */
-    public Double getBalanceFor(String asset) {
+    public BigDecimal getBalanceFor(String asset) {
         if (asset == null) return null;
         switch (asset.toUpperCase()) {
-            case "BTC":  return btcBalance  != null ? btcBalance  : 0.0;
-            case "ETH":  return ethBalance  != null ? ethBalance  : 0.0;
-            case "BNB":  return bnbBalance  != null ? bnbBalance  : 0.0;
-            case "USDT": return usdtBalance != null ? usdtBalance : 0.0;
-            case "USD":  return usdBalance  != null ? usdBalance  : 0.0;
-            case "GHS":  return cediBalance != null ? cediBalance : 0.0;
+            case "BTC":  return btcBalance  != null ? btcBalance  : BigDecimal.ZERO;
+            case "ETH":  return ethBalance  != null ? ethBalance  : BigDecimal.ZERO;
+            case "BNB":  return bnbBalance  != null ? bnbBalance  : BigDecimal.ZERO;
+            case "USDT": return usdtBalance != null ? usdtBalance : BigDecimal.ZERO;
+            case "USD":  return usdBalance  != null ? usdBalance  : BigDecimal.ZERO;
+            case "GHS":  return cediBalance != null ? cediBalance : BigDecimal.ZERO;
             default:     return null;
         }
     }
 
     /** Returns false if the asset is not one this account can hold. */
-    public boolean setBalanceFor(String asset, double amount) {
-        if (asset == null) return false;
+    public boolean setBalanceFor(String asset, BigDecimal amount) {
+        if (asset == null || amount == null) return false;
         switch (asset.toUpperCase()) {
             case "BTC":  btcBalance = amount;  return true;
             case "ETH":  ethBalance = amount;  return true;
@@ -101,41 +124,4 @@ public class User {
         createdAt = LocalDateTime.now();
     }
 
-    public Double getCediBalance() {
-        return cediBalance;
-    }
-    public void setCediBalance(Double cediBalance) {
-        this.cediBalance = cediBalance;
-    }
-
-    public Double getBtcBalance() {
-        return btcBalance;
-    }
-    public void setBtcBalance(Double btcBalance) {
-        this.btcBalance = btcBalance;
-    }
-    public Double getUsdtBalance() {
-        return usdtBalance;
-    }
-    public void setUsdtBalance(Double usdtBalance) {
-        this.usdtBalance = usdtBalance;
-    }
-    public Double getUsdBalance() {
-        return usdBalance;
-    }
-    public void setUsdBalance(Double usdBalance) {
-        this.usdBalance = usdBalance;
-    }
-    public Double getEthBalance() {
-        return ethBalance;
-    }
-    public void setEthBalance(Double ethBalance) {
-        this.ethBalance = ethBalance;
-    }
-    public Double getBnbBalance() {
-        return bnbBalance;
-    }
-    public void setBnbBalance(Double bnbBalance) {
-        this.bnbBalance = bnbBalance;
-    }
 }

@@ -160,8 +160,8 @@ public class ConvertService {
             String fromAsset = request.getFromSymbol().toUpperCase();
             String toAsset = request.getToSymbol().toUpperCase();
 
-            Double fromBalance = user.getBalanceFor(fromAsset);
-            Double toBalance = user.getBalanceFor(toAsset);
+            BigDecimal fromBalance = user.getBalanceFor(fromAsset);
+            BigDecimal toBalance = user.getBalanceFor(toAsset);
             if (fromBalance == null) {
                 return createErrorResponse("Unsupported asset: " + fromAsset);
             }
@@ -170,15 +170,15 @@ public class ConvertService {
             }
 
             BigDecimal requested = request.getAmount();
-            if (BigDecimal.valueOf(fromBalance).compareTo(requested) < 0) {
+            if (fromBalance.compareTo(requested) < 0) {
                 return createErrorResponse(String.format(
                         "Insufficient %s balance: have %s, need %s",
-                        fromAsset, fromBalance, requested.toPlainString()));
+                        fromAsset, fromBalance.toPlainString(), requested.toPlainString()));
             }
 
             BigDecimal credited = quote.getToAmount();
-            user.setBalanceFor(fromAsset, BigDecimal.valueOf(fromBalance).subtract(requested).doubleValue());
-            user.setBalanceFor(toAsset, BigDecimal.valueOf(toBalance).add(credited).doubleValue());
+            user.setBalanceFor(fromAsset, fromBalance.subtract(requested));
+            user.setBalanceFor(toAsset, toBalance.add(credited));
             userRepository.save(user);
 
             // Create convert order

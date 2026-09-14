@@ -1,6 +1,8 @@
 package project.bitby.bitby.models;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,14 +42,14 @@ public class P2POrder {
     @Column(nullable = false)
     private String assetSymbol;
 
-    @Column(nullable = false)
-    private Double amount;
+    @Column(nullable = false, precision = 36, scale = 18)
+    private BigDecimal amount;
 
-    @Column(nullable = false)
-    private Double totalPrice;
+    @Column(nullable = false, precision = 36, scale = 18)
+    private BigDecimal totalPrice;
 
-    @Column(nullable = false)
-    private Double pricePerUnit;
+    @Column(nullable = false, precision = 36, scale = 18)
+    private BigDecimal pricePerUnit;
 
     @Column(nullable = false)
     private String currency;

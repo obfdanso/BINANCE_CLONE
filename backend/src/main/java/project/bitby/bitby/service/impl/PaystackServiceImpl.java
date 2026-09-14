@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import project.bitby.bitby.dto.DepositRequest;
 import project.bitby.bitby.dto.DepositResponse;
 import project.bitby.bitby.models.User;
@@ -92,27 +94,29 @@ public class PaystackServiceImpl implements PaystackService {
                             // Get current price in USD for the crypto
                             Optional<MarketDataResponse> marketDataOpt = marketDataService.getMarketDataBySymbol(currency);
                             if (marketDataOpt.isPresent() && marketDataOpt.get().getCurrentPrice() != null && marketDataOpt.get().getCurrentPrice().doubleValue() > 0) {
-                                double price = marketDataOpt.get().getCurrentPrice().doubleValue();
-                                double cryptoAmount = amount / price;
-                                if (currency.equals("BTC")) user.setBtcBalance((user.getBtcBalance() != null ? user.getBtcBalance() : 0.0) + cryptoAmount);
-                                if (currency.equals("ETH")) user.setEthBalance((user.getEthBalance() != null ? user.getEthBalance() : 0.0) + cryptoAmount);
-                                if (currency.equals("USDT")) user.setUsdtBalance((user.getUsdtBalance() != null ? user.getUsdtBalance() : 0.0) + cryptoAmount);
-                                if (currency.equals("BNB")) user.setBnbBalance((user.getBnbBalance() != null ? user.getBnbBalance() : 0.0) + cryptoAmount);
-                                updated = true;
+                                BigDecimal price = marketDataOpt.get().getCurrentPrice();
+                                // 18 places matches the column scale and covers wei.
+                                BigDecimal cryptoAmount = BigDecimal.valueOf(amount)
+                                        .divide(price, 18, RoundingMode.HALF_UP);
+                                BigDecimal held = user.getBalanceFor(currency);
+                                if (held != null) {
+                                    user.setBalanceFor(currency, held.add(cryptoAmount));
+                                    updated = true;
+                                }
                             }
                             break;
                         }
                         case "USD":
-                            user.setUsdBalance((user.getUsdBalance() != null ? user.getUsdBalance() : 0.0) + amount);
+                            user.setUsdBalance(user.getUsdBalance().add(BigDecimal.valueOf(amount)));
                             updated = true;
                             break;
                         case "GHS":
-                            user.setCediBalance((user.getCediBalance() != null ? user.getCediBalance() : 0.0) + amount);
+                            user.setCediBalance(user.getCediBalance().add(BigDecimal.valueOf(amount)));
                             updated = true;
                             break;
                         default:
-                            // For other currencies, you may want to convert to USD or handle as needed
-                            user.setUsdBalance((user.getUsdBalance() != null ? user.getUsdBalance() : 0.0) + amount);
+                            // Anything else is credited in USD.
+                            user.setUsdBalance(user.getUsdBalance().add(BigDecimal.valueOf(amount)));
                             updated = true;
                     }
                     if (updated) {
@@ -143,12 +147,12 @@ public class PaystackServiceImpl implements PaystackService {
             return new project.bitby.bitby.dto.WithdrawResponse("FAILED", null, "User not found");
         }
         User user = userOpt.get();
-        double amount = request.getAmount();
-        if (user.getCediBalance() == null || user.getCediBalance() < amount) {
+        BigDecimal amount = BigDecimal.valueOf(request.getAmount());
+        if (user.getCediBalance() == null || user.getCediBalance().compareTo(amount) < 0) {
             return new project.bitby.bitby.dto.WithdrawResponse("FAILED", null, "Insufficient GHS balance");
         }
         // Deduct the amount
-        user.setCediBalance(user.getCediBalance() - amount);
+        user.setCediBalance(user.getCediBalance().subtract(amount));
         userRepository.save(user);
         // MOCK: Simulate Paystack transfer for test/starter business
         // Generate a fake transaction ID

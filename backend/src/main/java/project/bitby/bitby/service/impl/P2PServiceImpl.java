@@ -3,6 +3,7 @@ package project.bitby.bitby.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.math.BigDecimal;
 import project.bitby.bitby.dto.*;
 import project.bitby.bitby.models.Cryptocurrency;
 import project.bitby.bitby.models.P2PListing;
@@ -44,8 +45,10 @@ public class P2PServiceImpl implements P2PService {
                 .orElseThrow(() -> new RuntimeException("Cryptocurrency not found: " + request.getAssetSymbol()));
 
         // Check if user has enough assets
-        Double userAssetBalance = getUserAssetBalance(seller, request.getAssetSymbol());
-        if (userAssetBalance < request.getAmount()) {
+        BigDecimal listedAmount = BigDecimal.valueOf(request.getAmount());
+        BigDecimal listedPrice = BigDecimal.valueOf(request.getPricePerUnit());
+        BigDecimal userAssetBalance = getUserAssetBalance(seller, request.getAssetSymbol());
+        if (userAssetBalance.compareTo(listedAmount) < 0) {
             throw new RuntimeException("Insufficient " + request.getAssetSymbol() + " balance");
         }
 
@@ -53,8 +56,8 @@ public class P2PServiceImpl implements P2PService {
         listing.setSeller(seller);
         listing.setCryptocurrency(cryptocurrency);
         listing.setAssetSymbol(request.getAssetSymbol());
-        listing.setAmount(request.getAmount());
-        listing.setPricePerUnit(request.getPricePerUnit());
+        listing.setAmount(listedAmount);
+        listing.setPricePerUnit(listedPrice);
         listing.setCurrency(request.getCurrency());
         listing.setStatus(P2PListing.ListingStatus.ACTIVE);
 
@@ -116,7 +119,11 @@ public class P2PServiceImpl implements P2PService {
             throw new RuntimeException("You cannot buy from yourself");
         }
 
-        if (request.getAmount() > listing.getAmount()) {
+        // PlaceOrderRequest still carries a Double from the wire; compare and
+        // move money in BigDecimal from here on.
+        BigDecimal requestedAmount = BigDecimal.valueOf(request.getAmount());
+
+        if (requestedAmount.compareTo(listing.getAmount()) > 0) {
             throw new RuntimeException("Requested amount exceeds available amount");
         }
 
@@ -126,28 +133,30 @@ public class P2PServiceImpl implements P2PService {
         }
 
         // Check if buyer has enough currency balance
-        Double buyerCurrencyBalance = getUserCurrencyBalance(buyer, listing.getCurrency());
-        Double totalPrice = request.getAmount() * listing.getPricePerUnit();
-        
-        if (buyerCurrencyBalance < totalPrice) {
-            throw new RuntimeException("Insufficient " + listing.getCurrency() + " balance. Required: " + totalPrice + ", Available: " + buyerCurrencyBalance);
+        BigDecimal buyerCurrencyBalance = getUserCurrencyBalance(buyer, listing.getCurrency());
+        BigDecimal totalPrice = requestedAmount.multiply(listing.getPricePerUnit());
+
+        if (buyerCurrencyBalance.compareTo(totalPrice) < 0) {
+            throw new RuntimeException("Insufficient " + listing.getCurrency() + " balance. Required: "
+                    + totalPrice.toPlainString() + ", Available: " + buyerCurrencyBalance.toPlainString());
         }
 
         // Check if seller has enough asset balance
-        Double sellerAssetBalance = getUserAssetBalance(listing.getSeller(), listing.getAssetSymbol());
-        if (sellerAssetBalance < request.getAmount()) {
-            throw new RuntimeException("Seller has insufficient " + listing.getAssetSymbol() + " balance. Required: " + request.getAmount() + ", Available: " + sellerAssetBalance);
+        BigDecimal sellerAssetBalance = getUserAssetBalance(listing.getSeller(), listing.getAssetSymbol());
+        if (sellerAssetBalance.compareTo(requestedAmount) < 0) {
+            throw new RuntimeException("Seller has insufficient " + listing.getAssetSymbol() + " balance. Required: "
+                    + requestedAmount.toPlainString() + ", Available: " + sellerAssetBalance.toPlainString());
         }
 
         // Deduct currency from buyer
-        updateUserCurrencyBalance(buyer, listing.getCurrency(), -totalPrice);
+        updateUserCurrencyBalance(buyer, listing.getCurrency(), totalPrice.negate());
 
         // Deduct assets from seller
-        updateUserAssetBalance(listing.getSeller(), listing.getAssetSymbol(), -request.getAmount());
+        updateUserAssetBalance(listing.getSeller(), listing.getAssetSymbol(), requestedAmount.negate());
 
         // Update listing amount
-        listing.setAmount(listing.getAmount() - request.getAmount());
-        if (listing.getAmount() <= 0) {
+        listing.setAmount(listing.getAmount().subtract(requestedAmount));
+        if (listing.getAmount().compareTo(BigDecimal.ZERO) <= 0) {
             listing.setStatus(P2PListing.ListingStatus.COMPLETED);
         }
         listingRepository.save(listing);
@@ -160,7 +169,7 @@ public class P2PServiceImpl implements P2PService {
         order.setUserId(buyer.getUserId());
         order.setCryptocurrency(listing.getCryptocurrency());
         order.setAssetSymbol(listing.getAssetSymbol());
-        order.setAmount(request.getAmount());
+        order.setAmount(requestedAmount);
         order.setTotalPrice(totalPrice);
         order.setPricePerUnit(listing.getPricePerUnit());
         order.setCurrency(listing.getCurrency());
@@ -261,7 +270,7 @@ public class P2PServiceImpl implements P2PService {
 
         // Update listing amount
         P2PListing listing = order.getListing();
-        listing.setAmount(listing.getAmount() + order.getAmount());
+        listing.setAmount(listing.getAmount().add(order.getAmount()));
         if (listing.getStatus() == P2PListing.ListingStatus.COMPLETED) {
             listing.setStatus(P2PListing.ListingStatus.ACTIVE);
         }
@@ -333,75 +342,47 @@ public class P2PServiceImpl implements P2PService {
         );
     }
 
-    private Double getUserAssetBalance(User user, String assetSymbol) {
-        switch (assetSymbol.toUpperCase()) {
-            case "BTC": return user.getBtcBalance() != null ? user.getBtcBalance() : 0.0;
-            case "ETH": return user.getEthBalance() != null ? user.getEthBalance() : 0.0;
-            case "USDT": return user.getUsdtBalance() != null ? user.getUsdtBalance() : 0.0;
-            case "USD": return user.getUsdBalance() != null ? user.getUsdBalance() : 0.0;
-            case "BNB": return user.getBnbBalance() != null ? user.getBnbBalance() : 0.0;
-            default: throw new RuntimeException("Unsupported asset: " + assetSymbol);
+    /*
+     * These four wrapped the same per-asset switch that User now owns, and
+     * they each recognised a slightly different set of assets. They delegate
+     * now, so adding an asset is one change rather than four.
+     */
+    private BigDecimal getUserAssetBalance(User user, String assetSymbol) {
+        BigDecimal balance = user.getBalanceFor(assetSymbol);
+        if (balance == null) {
+            throw new RuntimeException("Unsupported asset: " + assetSymbol);
         }
+        return balance;
     }
 
-    private void updateUserAssetBalance(User user, String assetSymbol, Double amount) {
-        Double currentBalance = getUserAssetBalance(user, assetSymbol);
-        Double newBalance = currentBalance + amount;
-        
-        // Prevent negative balance
-        if (newBalance < 0) {
-            throw new RuntimeException("Insufficient " + assetSymbol + " balance. Cannot deduct " + amount + " from current balance " + currentBalance);
-        }
-        
-        switch (assetSymbol.toUpperCase()) {
-            case "BTC":
-                user.setBtcBalance(newBalance);
-                break;
-            case "ETH":
-                user.setEthBalance(newBalance);
-                break;
-            case "USDT":
-                user.setUsdtBalance(newBalance);
-                break;
-            case "USD":
-                user.setUsdBalance(newBalance);
-                break;
-            case "BNB":
-                user.setBnbBalance(newBalance);
-                break;
-            default:
-                throw new RuntimeException("Unsupported asset: " + assetSymbol);
-        }
-        userRepository.save(user);
+    private void updateUserAssetBalance(User user, String assetSymbol, BigDecimal amount) {
+        adjustBalance(user, assetSymbol, amount, "asset");
     }
 
-    private Double getUserCurrencyBalance(User user, String currency) {
-        switch (currency.toUpperCase()) {
-            case "GHS": return user.getCediBalance() != null ? user.getCediBalance() : 0.0;
-            case "USD": return user.getUsdBalance() != null ? user.getUsdBalance() : 0.0;
-            default: throw new RuntimeException("Unsupported currency: " + currency);
+    private BigDecimal getUserCurrencyBalance(User user, String currency) {
+        BigDecimal balance = user.getBalanceFor(currency);
+        if (balance == null) {
+            throw new RuntimeException("Unsupported currency: " + currency);
         }
+        return balance;
     }
 
-    private void updateUserCurrencyBalance(User user, String currency, Double amount) {
-        Double currentBalance = getUserCurrencyBalance(user, currency);
-        Double newBalance = currentBalance + amount;
-        
-        // Prevent negative balance
-        if (newBalance < 0) {
-            throw new RuntimeException("Insufficient " + currency + " balance. Cannot deduct " + amount + " from current balance " + currentBalance);
+    private void updateUserCurrencyBalance(User user, String currency, BigDecimal amount) {
+        adjustBalance(user, currency, amount, "currency");
+    }
+
+    /** Applies a signed delta, refusing to take the balance below zero. */
+    private void adjustBalance(User user, String asset, BigDecimal amount, String kind) {
+        BigDecimal current = user.getBalanceFor(asset);
+        if (current == null) {
+            throw new RuntimeException("Unsupported " + kind + ": " + asset);
         }
-        
-        switch (currency.toUpperCase()) {
-            case "GHS":
-                user.setCediBalance(newBalance);
-                break;
-            case "USD":
-                user.setUsdBalance(newBalance);
-                break;
-            default:
-                throw new RuntimeException("Unsupported currency: " + currency);
+        BigDecimal updated = current.add(amount);
+        if (updated.compareTo(BigDecimal.ZERO) < 0) {
+            throw new RuntimeException("Insufficient " + asset + " balance. Cannot deduct "
+                    + amount.abs().toPlainString() + " from current balance " + current.toPlainString());
         }
+        user.setBalanceFor(asset, updated);
         userRepository.save(user);
     }
 } 

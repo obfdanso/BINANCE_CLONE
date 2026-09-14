@@ -444,15 +444,15 @@ public class SpotTradingServiceImpl implements SpotTradingService {
      * loudly rather than leave an account owing the exchange.
      */
     private boolean adjustBalance(User user, String asset, BigDecimal delta) {
-        Double current = user.getBalanceFor(asset);
+        BigDecimal current = user.getBalanceFor(asset);
         if (current == null) return false;
-        BigDecimal updated = BigDecimal.valueOf(current).add(delta);
+        BigDecimal updated = current.add(delta);
         if (updated.compareTo(BigDecimal.ZERO) < 0) {
             log.error("Refusing to settle: {} balance for user {} would fall to {}",
                     asset, user.getUserId(), updated.toPlainString());
             return false;
         }
-        return user.setBalanceFor(asset, updated.doubleValue());
+        return user.setBalanceFor(asset, updated);
     }
 
     private BigDecimal calculateFee(BigDecimal quantity, BigDecimal price, BigDecimal feeRate) {
@@ -467,22 +467,19 @@ public class SpotTradingServiceImpl implements SpotTradingService {
 
 
     private BigDecimal getUserBaseAssetBalance(User user, String baseAsset) {
-        switch (baseAsset.toUpperCase()) {
-            case "BTC": return BigDecimal.valueOf(user.getBtcBalance() != null ? user.getBtcBalance() : 0.0);
-            case "ETH": return BigDecimal.valueOf(user.getEthBalance() != null ? user.getEthBalance() : 0.0);
-            case "BNB": return BigDecimal.valueOf(user.getBnbBalance() != null ? user.getBnbBalance() : 0.0);
-            case "USDT": return BigDecimal.valueOf(user.getUsdtBalance() != null ? user.getUsdtBalance() : 0.0);
-            default: throw new RuntimeException("Unsupported base asset: " + baseAsset);
+        BigDecimal balance = user.getBalanceFor(baseAsset);
+        if (balance == null) {
+            throw new RuntimeException("Unsupported base asset: " + baseAsset);
         }
+        return balance;
     }
 
     private BigDecimal getUserQuoteAssetBalance(User user, String quoteAsset) {
-        switch (quoteAsset.toUpperCase()) {
-            case "USDT": return BigDecimal.valueOf(user.getUsdtBalance() != null ? user.getUsdtBalance() : 0.0);
-            case "USD": return BigDecimal.valueOf(user.getUsdBalance() != null ? user.getUsdBalance() : 0.0);
-            case "GHS": return BigDecimal.valueOf(user.getCediBalance() != null ? user.getCediBalance() : 0.0);
-            default: throw new RuntimeException("Unsupported quote asset: " + quoteAsset);
+        BigDecimal balance = user.getBalanceFor(quoteAsset);
+        if (balance == null) {
+            throw new RuntimeException("Unsupported quote asset: " + quoteAsset);
         }
+        return balance;
     }
 
     private SpotOrderResponse convertToSpotOrderResponse(Order order) {

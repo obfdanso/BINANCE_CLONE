@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import java.math.BigDecimal;
 import project.bitby.bitby.dto.*;
 import project.bitby.bitby.models.P2PListing;
 import project.bitby.bitby.models.User;
@@ -147,23 +148,24 @@ public class P2PController {
             }
             
             // Check amount validation
-            if (request.getAmount() > listing.getAmount()) {
+            BigDecimal requestedAmount = BigDecimal.valueOf(request.getAmount());
+            if (requestedAmount.compareTo(listing.getAmount()) > 0) {
                 return ResponseEntity.badRequest().body("Requested amount (" + request.getAmount() + 
                     ") exceeds available amount (" + listing.getAmount() + ")");
             }
             
             // Check currency balance
-            Double buyerCurrencyBalance = getUserCurrencyBalance(buyer, listing.getCurrency());
-            Double totalPrice = request.getAmount() * listing.getPricePerUnit();
+            BigDecimal buyerCurrencyBalance = getUserCurrencyBalance(buyer, listing.getCurrency());
+            BigDecimal totalPrice = requestedAmount.multiply(listing.getPricePerUnit());
             
-            if (buyerCurrencyBalance < totalPrice) {
+            if (buyerCurrencyBalance.compareTo(totalPrice) < 0) {
                 return ResponseEntity.badRequest().body("Insufficient " + listing.getCurrency() + 
                     " balance. Required: " + totalPrice + ", Available: " + buyerCurrencyBalance);
             }
             
             // Check seller asset balance
-            Double sellerAssetBalance = getUserAssetBalance(listing.getSeller(), listing.getAssetSymbol());
-            if (sellerAssetBalance < request.getAmount()) {
+            BigDecimal sellerAssetBalance = getUserAssetBalance(listing.getSeller(), listing.getAssetSymbol());
+            if (sellerAssetBalance.compareTo(requestedAmount) < 0) {
                 return ResponseEntity.badRequest().body("Seller has insufficient " + listing.getAssetSymbol() + 
                     " balance. Required: " + request.getAmount() + ", Available: " + sellerAssetBalance);
             }
@@ -175,19 +177,15 @@ public class P2PController {
         }
     }
 
-    private Double getUserCurrencyBalance(User user, String currency) {
-        switch (currency.toUpperCase()) {
-            case "GHS": return user.getCediBalance() != null ? user.getCediBalance() : 0.0;
-            case "USD": return user.getUsdBalance() != null ? user.getUsdBalance() : 0.0;
-            default: throw new RuntimeException("Unsupported currency: " + currency);
-        }
+    private BigDecimal getUserCurrencyBalance(User user, String currency) {
+        BigDecimal balance = user.getBalanceFor(currency);
+        if (balance == null) throw new RuntimeException("Unsupported currency: " + currency);
+        return balance;
     }
 
-    private Double getUserAssetBalance(User user, String assetSymbol) {
-        switch (assetSymbol.toUpperCase()) {
-            case "BTC": return user.getBtcBalance() != null ? user.getBtcBalance() : 0.0;
-            case "ETH": return user.getEthBalance() != null ? user.getEthBalance() : 0.0;
-            default: throw new RuntimeException("Unsupported asset: " + assetSymbol);
-        }
+    private BigDecimal getUserAssetBalance(User user, String assetSymbol) {
+        BigDecimal balance = user.getBalanceFor(assetSymbol);
+        if (balance == null) throw new RuntimeException("Unsupported asset: " + assetSymbol);
+        return balance;
     }
 } 

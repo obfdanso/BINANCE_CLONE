@@ -53,12 +53,10 @@ public class AssetServiceImpl implements AssetService {
         // Supported assets
         String[] assets = {"BTC", "ETH", "BNB", "USDT", "USD", "GHS"};
         Map<String, Double> userBalances = new HashMap<>();
-        userBalances.put("BTC", user.getBtcBalance() != null ? user.getBtcBalance() : 0.0);
-        userBalances.put("ETH", user.getEthBalance() != null ? user.getEthBalance() : 0.0);
-        userBalances.put("BNB", user.getBnbBalance() != null ? user.getBnbBalance() : 0.0);
-        userBalances.put("USDT", user.getUsdtBalance() != null ? user.getUsdtBalance() : 0.0);
-        userBalances.put("USD", user.getUsdBalance() != null ? user.getUsdBalance() : 0.0);
-        userBalances.put("GHS", user.getCediBalance() != null ? user.getCediBalance() : 0.0);
+        for (String asset : assets) {
+            BigDecimal held = user.getBalanceFor(asset);
+            userBalances.put(asset, held != null ? held.doubleValue() : 0.0);
+        }
 
         // Prepare last prices map
         Map<String, Double> lastPrices = new HashMap<>();
@@ -178,77 +176,48 @@ public class AssetServiceImpl implements AssetService {
             totalCostInPaymentCurrency = totalCost * usdToGhs;
         }
         
-        // FIRST: Check if user has sufficient balance
-        boolean userHasSufficientBalance = false;
-        if (currency.equals("USD")) {
-            if (user.getUsdBalance() != null && user.getUsdBalance() >= totalCostInPaymentCurrency) {
-                userHasSufficientBalance = true;
-            } else {
-                return new BuyAssetResponse("FAILED", null, "Insufficient USD balance. You have: " + 
-                    (user.getUsdBalance() != null ? user.getUsdBalance() : 0) + " USD, Required: " + totalCostInPaymentCurrency + " USD");
-            }
-        } else if (currency.equals("GHS")) {
-            if (user.getCediBalance() != null && user.getCediBalance() >= totalCostInPaymentCurrency) {
-                userHasSufficientBalance = true;
-            } else {
-                return new BuyAssetResponse("FAILED", null, "Insufficient GHS balance. You have: " + 
-                    (user.getCediBalance() != null ? user.getCediBalance() : 0) + " GHS, Required: " + totalCostInPaymentCurrency + " GHS");
-            }
+        /*
+         * Balance checks and transfers, in BigDecimal.
+         *
+         * These were double arithmetic, which is what produced balances like
+         * 749.6610000000001 after a purchase. getBalanceFor/setBalanceFor keep
+         * the per-asset column mapping in one place.
+         */
+        BigDecimal costInPaymentCurrency = BigDecimal.valueOf(totalCostInPaymentCurrency);
+        BigDecimal costInUsd = BigDecimal.valueOf(totalCost);
+        BigDecimal purchased = BigDecimal.valueOf(request.getAmount());
+
+        BigDecimal userPaymentBalance = user.getBalanceFor(currency);
+        if (userPaymentBalance == null) {
+            return new BuyAssetResponse("FAILED", null, "Unsupported payment currency: " + currency);
         }
-        
-        if (!userHasSufficientBalance) {
-            return new BuyAssetResponse("FAILED", null, "Insufficient " + currency + " balance for purchase");
+        if (userPaymentBalance.compareTo(costInPaymentCurrency) < 0) {
+            return new BuyAssetResponse("FAILED", null, String.format(
+                    "Insufficient %s balance. You have: %s %s, Required: %s %s",
+                    currency, userPaymentBalance.toPlainString(), currency,
+                    costInPaymentCurrency.toPlainString(), currency));
         }
-        
-        // SECOND: Check if system has sufficient balance (as liquidity provider)
-        boolean systemHasSufficientBalance = false;
-        if (currency.equals("USD")) {
-            if (systemUser.getUsdBalance() != null && systemUser.getUsdBalance() >= totalCost) {
-                systemHasSufficientBalance = true;
-            } else {
-                return new BuyAssetResponse("FAILED", null, "System temporarily unavailable. Insufficient system USD balance. Available: " + 
-                    (systemUser.getUsdBalance() != null ? systemUser.getUsdBalance() : 0) + " USD, Required: " + totalCost + " USD");
-            }
-        } else if (currency.equals("GHS")) {
-            if (systemUser.getCediBalance() != null && systemUser.getCediBalance() >= totalCostInPaymentCurrency) {
-                systemHasSufficientBalance = true;
-            } else {
-                return new BuyAssetResponse("FAILED", null, "System temporarily unavailable. Insufficient system GHS balance. Available: " + 
-                    (systemUser.getCediBalance() != null ? systemUser.getCediBalance() : 0) + " GHS, Required: " + totalCostInPaymentCurrency + " GHS");
-            }
+
+        // The system account is the liquidity provider on the other side.
+        BigDecimal systemCost = currency.equals("GHS") ? costInPaymentCurrency : costInUsd;
+        BigDecimal systemPaymentBalance = systemUser.getBalanceFor(currency);
+        if (systemPaymentBalance == null || systemPaymentBalance.compareTo(systemCost) < 0) {
+            return new BuyAssetResponse("FAILED", null, String.format(
+                    "System temporarily unavailable. Insufficient system %s balance. Available: %s, Required: %s",
+                    currency,
+                    systemPaymentBalance == null ? "0" : systemPaymentBalance.toPlainString(),
+                    systemCost.toPlainString()));
         }
-        
-        if (!systemHasSufficientBalance) {
-            return new BuyAssetResponse("FAILED", null, "System temporarily unavailable. Please try again later.");
+
+        BigDecimal userAssetBalance = user.getBalanceFor(asset);
+        if (userAssetBalance == null) {
+            return new BuyAssetResponse("FAILED", null, "Unsupported asset: " + asset);
         }
-        
-        // THIRD: Deduct from user's balance
-        if (currency.equals("USD")) {
-            user.setUsdBalance(user.getUsdBalance() - totalCostInPaymentCurrency);
-        } else if (currency.equals("GHS")) {
-            user.setCediBalance(user.getCediBalance() - totalCostInPaymentCurrency);
-        }
-        
-        // FOURTH: Deduct from system revenue pool (as liquidity provider)
-        if (currency.equals("USD")) {
-            systemUser.setUsdBalance(systemUser.getUsdBalance() - totalCost);
-        } else if (currency.equals("GHS")) {
-            systemUser.setCediBalance(systemUser.getCediBalance() - totalCostInPaymentCurrency);
-        }
-        
-        // FIFTH: Add purchased asset to user's balance
-        switch (asset) {
-            case "BTC":
-                user.setBtcBalance((user.getBtcBalance() != null ? user.getBtcBalance() : 0.0) + request.getAmount());
-                break;
-            case "ETH":
-                user.setEthBalance((user.getEthBalance() != null ? user.getEthBalance() : 0.0) + request.getAmount());
-                break;
-            case "USDT":
-                user.setUsdtBalance((user.getUsdtBalance() != null ? user.getUsdtBalance() : 0.0) + request.getAmount());
-                break;
-        }
-        
+
+        user.setBalanceFor(currency, userPaymentBalance.subtract(costInPaymentCurrency));
+        systemUser.setBalanceFor(currency, systemPaymentBalance.subtract(systemCost));
+        user.setBalanceFor(asset, userAssetBalance.add(purchased));
+
         // SIXTH: Save both user and system user
         userRepository.save(user);
         userRepository.save(systemUser);

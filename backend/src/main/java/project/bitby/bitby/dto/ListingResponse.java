@@ -1,5 +1,6 @@
 package project.bitby.bitby.dto;
 
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,8 @@ public class ListingResponse {
     private Long id;
     private String sellerUsername;
     private String assetSymbol;
-    private Double amount;
-    private Double pricePerUnit;
+    private BigDecimal amount;
+    private BigDecimal pricePerUnit;
     private String currency;
     private P2PListing.ListingStatus status;
     private LocalDateTime createdAt;

@@ -75,12 +75,12 @@ public class RevenueInitializationService implements CommandLineRunner {
                     .divide(bnbPrice, 8, BigDecimal.ROUND_HALF_UP);
 
             // Set the balances
-            systemUser.setUsdBalance(usdAmount.doubleValue());
-            systemUser.setCediBalance(ghsAmount.doubleValue());
-            systemUser.setBtcBalance(btcAmount.doubleValue());
-            systemUser.setEthBalance(ethAmount.doubleValue());
-            systemUser.setUsdtBalance(usdtAmount.doubleValue());
-            systemUser.setBnbBalance(bnbAmount.doubleValue());
+            systemUser.setUsdBalance(usdAmount);
+            systemUser.setCediBalance(ghsAmount);
+            systemUser.setBtcBalance(btcAmount);
+            systemUser.setEthBalance(ethAmount);
+            systemUser.setUsdtBalance(usdtAmount);
+            systemUser.setBnbBalance(bnbAmount);
 
             // Save the updated user
             userRepository.save(systemUser);
@@ -160,35 +160,35 @@ public class RevenueInitializationService implements CommandLineRunner {
                 
                 // Add USD balance
                 if (user.getUsdBalance() != null) {
-                    totalRevenue = totalRevenue.add(BigDecimal.valueOf(user.getUsdBalance()));
+                    totalRevenue = totalRevenue.add(user.getUsdBalance());
                 }
                 
                 // Add GHS balance converted to USD
                 if (user.getCediBalance() != null) {
-                    BigDecimal ghsInUsd = BigDecimal.valueOf(user.getCediBalance()).multiply(GHS_TO_USD_RATE);
+                    BigDecimal ghsInUsd = user.getCediBalance().multiply(GHS_TO_USD_RATE);
                     totalRevenue = totalRevenue.add(ghsInUsd);
                 }
                 
                 // Add crypto balances converted to USD
                 if (user.getBtcBalance() != null) {
                     BigDecimal btcPrice = getCurrentCryptoPrice("BTC");
-                    BigDecimal btcInUsd = BigDecimal.valueOf(user.getBtcBalance()).multiply(btcPrice);
+                    BigDecimal btcInUsd = user.getBtcBalance().multiply(btcPrice);
                     totalRevenue = totalRevenue.add(btcInUsd);
                 }
                 
                 if (user.getEthBalance() != null) {
                     BigDecimal ethPrice = getCurrentCryptoPrice("ETH");
-                    BigDecimal ethInUsd = BigDecimal.valueOf(user.getEthBalance()).multiply(ethPrice);
+                    BigDecimal ethInUsd = user.getEthBalance().multiply(ethPrice);
                     totalRevenue = totalRevenue.add(ethInUsd);
                 }
                 
                 if (user.getUsdtBalance() != null) {
-                    totalRevenue = totalRevenue.add(BigDecimal.valueOf(user.getUsdtBalance()));
+                    totalRevenue = totalRevenue.add(user.getUsdtBalance());
                 }
                 
                 if (user.getBnbBalance() != null) {
                     BigDecimal bnbPrice = getCurrentCryptoPrice("BNB");
-                    BigDecimal bnbInUsd = BigDecimal.valueOf(user.getBnbBalance()).multiply(bnbPrice);
+                    BigDecimal bnbInUsd = user.getBnbBalance().multiply(bnbPrice);
                     totalRevenue = totalRevenue.add(bnbInUsd);
                 }
                 
@@ -213,22 +213,22 @@ public class RevenueInitializationService implements CommandLineRunner {
                 switch (currency.toUpperCase()) {
                     case "USD":
                         return user.getUsdBalance() != null && 
-                               BigDecimal.valueOf(user.getUsdBalance()).compareTo(amount) >= 0;
+                               user.getUsdBalance().compareTo(amount) >= 0;
                     case "GHS":
                         return user.getCediBalance() != null && 
-                               BigDecimal.valueOf(user.getCediBalance()).compareTo(amount) >= 0;
+                               user.getCediBalance().compareTo(amount) >= 0;
                     case "BTC":
                         return user.getBtcBalance() != null && 
-                               BigDecimal.valueOf(user.getBtcBalance()).compareTo(amount) >= 0;
+                               user.getBtcBalance().compareTo(amount) >= 0;
                     case "ETH":
                         return user.getEthBalance() != null && 
-                               BigDecimal.valueOf(user.getEthBalance()).compareTo(amount) >= 0;
+                               user.getEthBalance().compareTo(amount) >= 0;
                     case "USDT":
                         return user.getUsdtBalance() != null && 
-                               BigDecimal.valueOf(user.getUsdtBalance()).compareTo(amount) >= 0;
+                               user.getUsdtBalance().compareTo(amount) >= 0;
                     case "BNB":
                         return user.getBnbBalance() != null && 
-                               BigDecimal.valueOf(user.getBnbBalance()).compareTo(amount) >= 0;
+                               user.getBnbBalance().compareTo(amount) >= 0;
                     default:
                         return false;
                 }
