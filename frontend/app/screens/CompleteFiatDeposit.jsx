@@ -47,8 +47,6 @@ export default function CompleteFiatDeposit() {
         pulseAnimation.start();
     }, []);
 
-    // Calculate unread notifications count
-    const unreadCount = notifications.filter(notification => !notification.read).length;
 
     // Validate phone number
     const validatePhoneNumber = (number) => {

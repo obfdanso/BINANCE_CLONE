@@ -416,21 +416,26 @@ export default function P2P() {
                                             router.push({
                                                 pathname: '/screens/P2PBuy',
                                                 params: {
+                                                    listingId: order.id,
                                                     trader: order.user,
                                                     price: order.price,
                                                     limit: order.limit,
                                                     payment: order.payment,
-                                                    selectedCrypto: selectedCrypto,
+                                                    available: order.amount,
+                                                    selectedCrypto: order.asset || selectedCrypto,
                                                 }
                                             });
                                         } else if (activeTab === 'Sell') {
                                             router.push({
                                                 pathname: '/screens/P2PSell',
                                                 params: {
+                                                    listingId: order.id,
                                                     trader: order.user,
                                                     price: order.price,
                                                     limit: order.limit,
                                                     payment: order.payment,
+                                                    available: order.amount,
+                                                    selectedCrypto: order.asset || selectedCrypto,
                                                 }
                                             });
                                         }

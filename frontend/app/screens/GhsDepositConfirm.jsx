@@ -39,8 +39,6 @@ export default function GhsDepositConfirm() {
         ]).start();
     }, []);
 
-    // Calculate unread notifications count
-    const unreadCount = notifications.filter(notification => !notification.read).length;
 
     // Get deposit details from params or use defaults
     const amount = params.amount || '0';

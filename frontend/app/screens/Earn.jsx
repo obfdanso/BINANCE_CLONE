@@ -290,9 +290,11 @@ export default function Earn() {
                     {earnProducts[activeTab].map((product) => {
                         const isSubscribed = subscribedProducts.has(product.id);
                         return (
-                            <View
+                            <TouchableOpacity
                                 key={product.id}
                                 style={styles.productCard}
+                                onPress={() => handleProductPress(product)}
+                                activeOpacity={0.8}
                             >
                                 <View style={styles.productHeader}>
                                     <View style={styles.productIconContainer}>
@@ -350,7 +352,7 @@ export default function Earn() {
                                         </Text>
                                     </TouchableOpacity>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         );
                     })}
                 </View>

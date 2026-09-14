@@ -46,8 +46,6 @@ export default function CompleteDeposit() {
         pulseAnimation.start();
     }, []);
 
-    // Calculate unread notifications count
-    const unreadCount = notifications.filter(notification => !notification.read).length;
 
     const handleCopyAddress = () => {
         setCopiedAddress(true);
@@ -55,13 +53,7 @@ export default function CompleteDeposit() {
         Alert.alert('Copied!', 'Deposit address copied to clipboard');
     };
 
-    const handleShareAddress = () => {
-        Alert.alert('Share', 'Share deposit address');
-    };
 
-    const handleViewHistory = () => {
-        Alert.alert('History', 'View deposit history');
-    };
 
     return (
         <SafeAreaView style={[styles.safeArea, { paddingTop: insets.top + 10 }]}>

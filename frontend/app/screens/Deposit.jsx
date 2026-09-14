@@ -40,8 +40,6 @@ export default function Deposit() {
         pulseAnimation.start();
     }, []);
 
-    // Calculate unread notifications count
-    const unreadCount = notifications.filter(notification => !notification.read).length;
 
     // Get connected mobile money providers
     const mobileMoneyProviders = getConnectedMobileMoney().map(mobile => ({

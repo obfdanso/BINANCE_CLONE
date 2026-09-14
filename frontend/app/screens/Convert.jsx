@@ -53,8 +53,6 @@ export default function Convert() {
         pulseAnimation.start();
     }, []);
 
-    // Calculate unread notifications count
-    const unreadCount = notifications.filter(notification => !notification.read).length;
 
     // Coin list and prices come from the shared live market feed, so this
     // screen shows the same numbers as the rest of the app and does not hit
@@ -115,21 +113,6 @@ export default function Convert() {
 
 
     // Test conversion logic with known values
-    const testConversion = () => {
-        // Example: 2 XRP to BTC
-        // XRP price: ~$0.50, BTC price: ~$50,000
-        // 2 XRP = $1, so should get $1/$50,000 = 0.00002 BTC
-        const xrpPrice = 0.50;
-        const btcPrice = 50000;
-        const amount = 2;
-        const correctRate = xrpPrice / btcPrice; // This is correct: 0.50/50000 = 0.00001
-        const estimated = amount * correctRate;
-
-        console.log('Test conversion:');
-        console.log(`2 XRP ($${xrpPrice * 2}) to BTC ($${btcPrice})`);
-        console.log(`Correct rate: ${correctRate} (1 XRP = ${correctRate} BTC)`);
-        console.log(`2 XRP = ${estimated} BTC (which is $${estimated * btcPrice})`);
-    };
 
     // Show coin performance for the past month
     const showCoinPerformance = async (coinSymbol) => {

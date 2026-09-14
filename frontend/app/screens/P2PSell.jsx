@@ -5,6 +5,8 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { usePayment } from '../../contexts/PaymentContext';
 import styles from '../styles/P2PSell.styles';
+import { createOrder } from '../../services/p2pService';
+import { usePortfolio } from '../../contexts/PortfolioContext';
 
 const RED = '#FF6B6B';
 
@@ -12,7 +14,7 @@ export default function P2PSell() {
     const insets = useSafeAreaInsets();
     const router = useRouter();
     const params = useLocalSearchParams();
-    const { trader, price, limit, payment } = params;
+    const { listingId, trader, price, limit, payment, selectedCrypto } = params;
 
     const [amount, setAmount] = useState('');
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
@@ -20,6 +22,9 @@ export default function P2PSell() {
     const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
     const [calculatedUSD, setCalculatedUSD] = useState('0');
+    const [placing, setPlacing] = useState(false);
+    const [orderError, setOrderError] = useState('');
+    const { refresh: refreshPortfolio } = usePortfolio();
 
     // Animation values
     const modalOpacity = useRef(new Animated.Value(0)).current;
@@ -121,20 +126,40 @@ export default function P2PSell() {
         setShowConfirmationPopup(true);
     };
 
-    const handleAmountConfirm = () => {
-        console.log('Confirming order, showing success popup');
-        setShowConfirmationPopup(false);
-        setShowSuccessPopup(true);
-    };
-
-    const handlePaymentConfirm = () => {
+    /**
+     * Places the order against the listing.
+     *
+     * As on the buy screen, Confirm was attached to a handler that only
+     * swapped popups while a second handler that checked the payment method
+     * sat unused. Merged, and the order now reaches the backend.
+     */
+    const handleAmountConfirm = async () => {
         if (!selectedPaymentMethod) {
             Alert.alert('Payment Method Required', 'Please select a payment method');
             return;
         }
-        setShowConfirmationPopup(false);
-        setShowSuccessPopup(true);
-        animateModal(true);
+        if (!listingId) {
+            setOrderError('This offer is missing its listing reference. Go back and pick it again.');
+            return;
+        }
+
+        setOrderError('');
+        setPlacing(true);
+        try {
+            // Here the field holds the crypto amount being sold.
+            await createOrder({
+                listingId: Number(listingId),
+                amount: Number(amount),
+            });
+            await refreshPortfolio();
+            setShowConfirmationPopup(false);
+            setShowSuccessPopup(true);
+            animateModal(true);
+        } catch (error) {
+            setOrderError(error.message || 'Could not place the order.');
+        } finally {
+            setPlacing(false);
+        }
     };
 
     const handleFinalConfirm = () => {
@@ -309,8 +334,14 @@ export default function P2PSell() {
                                 <TouchableOpacity style={styles.cancelButton} onPress={closeModal}>
                                     <Text style={styles.cancelButtonText}>Cancel</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.confirmButton} onPress={handleAmountConfirm}>
-                                    <Text style={styles.confirmButtonText}>Confirm</Text>
+                                <TouchableOpacity
+                                    style={styles.confirmButton}
+                                    onPress={handleAmountConfirm}
+                                    disabled={placing}
+                                >
+                                    <Text style={styles.confirmButtonText}>
+                                        {placing ? 'Placing...' : 'Confirm'}
+                                    </Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

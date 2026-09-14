@@ -36,8 +36,6 @@ export default function AddFunds() {
         pulseAnimation.start();
     }, []);
 
-    // Calculate unread notifications count
-    const unreadCount = notifications.filter(notification => !notification.read).length;
 
 
 

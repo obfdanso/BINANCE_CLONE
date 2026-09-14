@@ -6,6 +6,8 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useUser } from '../../contexts/UserContext';
 import { usePayment } from '../../contexts/PaymentContext';
 import styles from '../styles/P2PBuy.styles';
+import { createOrder } from '../../services/p2pService';
+import { usePortfolio } from '../../contexts/PortfolioContext';
 
 const GREEN = '#00C896';
 const RED = '#FF4D4F';
@@ -14,7 +16,7 @@ export default function P2PBuy() {
     const insets = useSafeAreaInsets();
     const router = useRouter();
     const params = useLocalSearchParams();
-    const { trader, price, limit, payment, selectedCrypto } = params;
+    const { listingId, trader, price, limit, payment, selectedCrypto } = params;
 
     const [amount, setAmount] = useState('');
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
@@ -24,6 +26,9 @@ export default function P2PBuy() {
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
     const [showInsufficientBalanceModal, setShowInsufficientBalanceModal] = useState(false);
     const [calculatedCrypto, setCalculatedCrypto] = useState('0');
+    const [placing, setPlacing] = useState(false);
+    const [orderError, setOrderError] = useState('');
+    const { refresh: refreshPortfolio } = usePortfolio();
 
     // Animation values
     const modalOpacity = useRef(new Animated.Value(0)).current;
@@ -136,20 +141,41 @@ export default function P2PBuy() {
         setShowConfirmationPopup(true);
     };
 
-    const handleAmountConfirm = () => {
-        console.log('Confirming order, showing success popup');
-        setShowConfirmationPopup(false);
-        setShowSuccessPopup(true);
-    };
-
-    const handlePaymentConfirm = () => {
+    /**
+     * Places the order against the listing.
+     *
+     * The Confirm button used to call a handler that only swapped popups, so
+     * the screen reported a successful purchase without telling the backend.
+     * A second handler here did check the payment method but was attached to
+     * nothing; the two are merged into this one.
+     */
+    const handleAmountConfirm = async () => {
         if (!selectedPaymentMethod) {
             Alert.alert('Payment Method Required', 'Please select a payment method');
             return;
         }
-        setShowConfirmationPopup(false);
-        setShowSuccessPopup(true);
-        animateModal(true);
+        if (!listingId) {
+            setOrderError('This offer is missing its listing reference. Go back and pick it again.');
+            return;
+        }
+
+        setOrderError('');
+        setPlacing(true);
+        try {
+            // The backend takes the crypto amount; the field collects cedis.
+            await createOrder({
+                listingId: Number(listingId),
+                amount: Number(calculatedCrypto),
+            });
+            await refreshPortfolio();
+            setShowConfirmationPopup(false);
+            setShowSuccessPopup(true);
+            animateModal(true);
+        } catch (error) {
+            setOrderError(error.message || 'Could not place the order.');
+        } finally {
+            setPlacing(false);
+        }
     };
 
     const handleFinalConfirm = () => {
@@ -315,6 +341,9 @@ export default function P2PBuy() {
                                 </View>
                                 <View style={styles.warningBox}>
                                     <Ionicons name="warning-outline" size={20} color="#FFA500" />
+                                    {orderError ? (
+                                        <Text style={[styles.warningText, { color: RED }]}>{orderError}</Text>
+                                    ) : null}
                                     <Text style={styles.warningText}>
                                         Please ensure you have the funds ready. The trader will contact you shortly.
                                     </Text>
@@ -324,8 +353,14 @@ export default function P2PBuy() {
                                 <TouchableOpacity style={styles.cancelButton} onPress={closeModal}>
                                     <Text style={styles.cancelButtonText}>Cancel</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.confirmButton} onPress={handleAmountConfirm}>
-                                    <Text style={styles.confirmButtonText}>Confirm</Text>
+                                <TouchableOpacity
+                                    style={styles.confirmButton}
+                                    onPress={handleAmountConfirm}
+                                    disabled={placing}
+                                >
+                                    <Text style={styles.confirmButtonText}>
+                                        {placing ? 'Placing...' : 'Confirm'}
+                                    </Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

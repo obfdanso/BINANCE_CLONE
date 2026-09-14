@@ -22,42 +22,13 @@ export default function Square() {
   }, []);
 
   // Call this function whenever a lesson is completed in any course
-  async function updateStreakOnLessonComplete() {
-    const today = new Date().toISOString().slice(0, 10);
-    if (lastCompletedDate === today) return; // Already counted today
-    let newStreak = 1;
-    if (lastCompletedDate) {
-      const prev = new Date(lastCompletedDate);
-      const diff = (new Date(today) - prev) / (1000 * 60 * 60 * 24);
-      if (diff === 1) newStreak = currentStreak + 1;
-    }
-    setCurrentStreak(newStreak);
-    setLastCompletedDate(today);
-    await AsyncStorage.setItem('learningStreak', newStreak.toString());
-    await AsyncStorage.setItem('lastCompletedDate', today);
-  }
 
   useLayoutEffect(() => {
     navigation.setOptions?.({ headerShown: false });
   }, [navigation]);
 
-  const showNewsDetails = (title, content, category, time, imageUrl) => {
-    router.push({
-      pathname: '/screens/Notifications',
-      params: { title, content, category, time, imageUrl }
-    });
-  };
 
-  const showCoinDetails = (name, symbol, price, change, imageUrl) => {
-    router.push({
-      pathname: '/screens/SearchCoins',
-      params: { name, symbol, price, change, imageUrl }
-    });
-  };
 
-  const showMarketStats = () => {
-    router.push('/screens/SearchCoins');
-  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#0A0F1E' }}>

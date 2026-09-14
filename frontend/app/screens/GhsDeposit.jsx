@@ -36,8 +36,6 @@ export default function GhsDeposit() {
         ]).start();
     }, []);
 
-    // Calculate unread notifications count
-    const unreadCount = notifications.filter(notification => !notification.read).length;
 
     const paymentMethods = [
         {

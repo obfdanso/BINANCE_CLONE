@@ -103,10 +103,6 @@ export default function Dashboard() {
 
     const mainTabs = ['Favorites', 'Hot', 'Gainers', 'Losers'];
 
-    const handleSearch = () => {
-        // Handle search functionality
-        console.log('Searching for:', searchText);
-    };
 
     const openSearchModal = () => setSearchModalVisible(true);
     const closeSearchModal = () => {
