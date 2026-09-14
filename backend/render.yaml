@@ -1,0 +1,45 @@
+# Render deployment.
+#
+# Secrets use sync:false, which means Render prompts for the value once and
+# stores it, instead of it being written here. This file previously carried the
+# live database password, JWT signing key, Gmail app password, Telegram bot
+# token and Paystack keys in plain text.
+services:
+  - type: web
+    name: bitby-backend
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/bitby-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: SERVER_PORT
+        value: 8080
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRATION_MS
+        value: 86400000
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: 587
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: TELEGRAM_BOT_USERNAME
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
+      - key: PAYSTACK_PUBLIC_KEY
+        sync: false
+      - key: SECURITY_USER_NAME
+        value: admin
+      - key: SECURITY_USER_PASSWORD
+        sync: false

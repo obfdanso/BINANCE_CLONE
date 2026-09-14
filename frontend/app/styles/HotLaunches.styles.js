@@ -1,0 +1,203 @@
+import { StyleSheet } from 'react-native';
+
+const BG = '#0A0F1E';
+const CARD_BG = '#1A1F2E';
+const BORDER = 'rgba(255,255,255,0.06)';
+const GREEN = '#00C896';
+const INACTIVE_TAB = '#aaa';
+const RED = '#FF4D4F';
+
+export default StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: BG,
+    },
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+        paddingTop: 10,
+        paddingBottom: 8,
+    },
+    backButton: {
+        backgroundColor: 'rgba(35,40,52,0.95)',
+        borderRadius: 30,
+        padding: 12,
+        borderWidth: 1.5,
+        borderColor: 'rgba(255,255,255,0.08)',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.16,
+        shadowRadius: 8,
+        elevation: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    descriptionBox: {
+        backgroundColor: CARD_BG,
+        borderRadius: 12,
+        marginHorizontal: 16,
+        marginBottom: 16,
+        paddingVertical: 22,
+        paddingHorizontal: 16,
+        borderWidth: 1,
+        borderColor: GREEN,
+        alignItems: 'flex-start',
+        minHeight: 70,
+    },
+    descriptionIconWrapper: {
+        backgroundColor: '#232834',
+        borderRadius: 16,
+        padding: 7,
+        marginRight: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    descriptionTitle: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 16,
+        marginBottom: 2,
+    },
+    descriptionText: {
+        color: '#aaa',
+        fontSize: 13,
+    },
+    sectionTitle: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 15,
+        marginLeft: 20,
+        marginBottom: 10,
+    },
+    launchCard: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        marginHorizontal: 16,
+        marginBottom: 18,
+        padding: 16,
+        borderWidth: 1,
+        borderColor: BORDER,
+    },
+    launchRow: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        marginBottom: 4,
+        flex: 1,
+    },
+    launchIcon: {
+        backgroundColor: '#232834',
+        borderRadius: 16,
+        padding: 10,
+        marginRight: 14,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    launchTitle: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    launchSymbol: {
+        color: GREEN,
+        fontWeight: 'bold',
+        fontSize: 13,
+        marginBottom: 2,
+    },
+    launchDesc: {
+        color: '#aaa',
+        fontSize: 13,
+        marginBottom: 6,
+    },
+    launchMetaRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 2,
+        flexWrap: 'wrap',
+    },
+    launchMeta: {
+        color: INACTIVE_TAB,
+        fontSize: 12,
+        flexShrink: 1,
+    },
+    comingSoonBadge: {
+        backgroundColor: GREEN,
+        borderRadius: 8,
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        alignSelf: 'flex-start',
+        marginLeft: 10,
+    },
+    comingSoonText: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 12,
+    },
+    reminderButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: GREEN,
+        borderRadius: 12,
+        paddingVertical: 10,
+        paddingHorizontal: 32,
+        alignSelf: 'center',
+        minWidth: 225,
+        justifyContent: 'center',
+    },
+    reminderText: {
+        color: GREEN,
+        fontWeight: 'bold',
+        fontSize: 15,
+    },
+    reminderButtonActive: {
+        borderColor: RED,
+        backgroundColor: 'rgba(255,77,79,0.1)',
+    },
+    reminderTextActive: {
+        color: RED,
+    },
+    popupOverlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(16,20,28,0.3)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 200,
+    },
+    popupCard: {
+        backgroundColor: CARD_BG,
+        borderRadius: 18,
+        paddingVertical: 32,
+        paddingHorizontal: 36,
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: BORDER,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.12,
+        shadowRadius: 8,
+        elevation: 8,
+    },
+    popupIconCircle: {
+        backgroundColor: 'rgba(0,200,150,0.12)',
+        borderRadius: 32,
+        padding: 14,
+        marginBottom: 12,
+    },
+    popupIconCircleRemoved: {
+        backgroundColor: 'rgba(255,77,79,0.12)',
+    },
+    popupText: {
+        color: GREEN,
+        fontWeight: 'bold',
+        fontSize: 18,
+        marginTop: 2,
+    },
+    popupTextRemoved: {
+        color: RED,
+    },
+}); 

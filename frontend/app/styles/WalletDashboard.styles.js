@@ -1,0 +1,541 @@
+import { StyleSheet } from 'react-native';
+
+const BG = '#0A0F1E';
+const CARD_BG = '#1A1F2E';
+const BORDER = 'rgba(255,255,255,0.06)';
+const GREEN = '#00C896';
+
+export default StyleSheet.create({
+    safeArea: {
+        flex: 1,
+        backgroundColor: BG,
+    },
+    header: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
+        paddingTop: 30,
+        marginBottom: 12,
+    },
+    headerCenter: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    tabContainer: {
+        flexDirection: 'row',
+        backgroundColor: '#1A1F2E',
+        borderRadius: 16,
+        padding: 2,
+    },
+    tab: {
+        backgroundColor: 'transparent',
+        borderRadius: 14,
+        paddingHorizontal: 18,
+        paddingVertical: 6,
+        marginRight: 2,
+    },
+    activeTab: {
+        backgroundColor: '#232834',
+    },
+    tabText: {
+        color: '#aaa',
+        fontWeight: 'bold',
+        fontSize: 15,
+    },
+    activeTabText: {
+        color: '#fff',
+    },
+    backButton: {
+        backgroundColor: 'rgba(35,40,52,0.95)',
+        borderRadius: 30,
+        padding: 12,
+        borderWidth: 1.5,
+        borderColor: 'rgba(255,255,255,0.08)',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.16,
+        shadowRadius: 8,
+        elevation: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    headerRight: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    notificationButton: {
+        backgroundColor: 'rgba(35,40,52,0.95)',
+        borderRadius: 30,
+        padding: 12,
+        borderWidth: 1.5,
+        borderColor: 'rgba(255,255,255,0.08)',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.16,
+        shadowRadius: 8,
+        elevation: 4,
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+    },
+    notificationBadge: {
+        position: 'absolute',
+        top: 8,
+        right: 8,
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+        backgroundColor: '#FF6B6B',
+    },
+    contentWrapper: {
+        flex: 1,
+        width: '100%',
+        maxWidth: 500,
+        alignSelf: 'center',
+        justifyContent: 'flex-start',
+    },
+    infoCard: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        marginHorizontal: '5%',
+        marginTop: 8,
+        padding: 16,
+        borderWidth: 1,
+        borderColor: BORDER,
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 18,
+        minWidth: 0,
+    },
+    infoIconCircle: {
+        backgroundColor: '#232834',
+        borderRadius: 24,
+        padding: 12,
+        marginRight: 14,
+    },
+    infoTitle: {
+        color: '#fff',
+        fontWeight: 'bold',
+        fontSize: 17,
+        marginBottom: 2,
+        flexShrink: 1,
+    },
+    infoDesc: {
+        color: '#666',
+        fontSize: 13,
+        flexShrink: 1,
+    },
+    container: {
+        flex: 1,
+        paddingHorizontal: 20,
+    },
+    balanceCard: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        padding: 20,
+        borderWidth: 1,
+        borderColor: BORDER,
+        marginBottom: 20,
+    },
+    balanceHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 12,
+    },
+    balanceLabel: {
+        color: '#666',
+        fontSize: 14,
+        fontWeight: '500',
+    },
+    eyeButton: {
+        padding: 4,
+    },
+    balanceAmount: {
+        color: '#fff',
+        fontSize: 32,
+        fontWeight: 'bold',
+        marginBottom: 4,
+    },
+    balanceChange: {
+        color: GREEN,
+        fontSize: 14,
+        fontWeight: '500',
+    },
+    quickActions: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 24,
+    },
+    actionButton: {
+        alignItems: 'center',
+        flex: 1,
+        marginHorizontal: 4,
+    },
+    actionIconContainer: {
+        backgroundColor: 'rgba(255,255,255,0.05)',
+        borderRadius: 16,
+        padding: 12,
+        marginBottom: 8,
+        borderWidth: 1,
+        borderColor: BORDER,
+    },
+    actionText: {
+        color: '#fff',
+        fontSize: 12,
+        fontWeight: '500',
+    },
+    section: {
+        marginBottom: 24,
+    },
+    sectionHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
+    sectionTitle: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    viewAllText: {
+        color: GREEN,
+        fontSize: 14,
+        fontWeight: '500',
+    },
+    assetsList: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: BORDER,
+        overflow: 'hidden',
+    },
+    assetBalance: {
+        color: '#666',
+        fontSize: 14,
+    },
+    assetValueText: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '500',
+        marginBottom: 2,
+    },
+    assetChange: {
+        color: GREEN,
+        fontSize: 12,
+        fontWeight: '500',
+    },
+    transactionsList: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: BORDER,
+        overflow: 'hidden',
+    },
+    transactionTitle: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: '500',
+        marginBottom: 2,
+    },
+    transactionDate: {
+        color: '#666',
+        fontSize: 12,
+    },
+    transactionAmountText: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: '500',
+        marginBottom: 2,
+    },
+    transactionValue: {
+        color: '#666',
+        fontSize: 12,
+    },
+    emptyStateContainer: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: BORDER,
+        padding: 32,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    emptyStateTitle: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginTop: 16,
+        marginBottom: 8,
+    },
+    emptyStateText: {
+        color: '#666',
+        fontSize: 14,
+        textAlign: 'center',
+        lineHeight: 20,
+    },
+    combinedSection: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: BORDER,
+        marginBottom: 24,
+        overflow: 'hidden',
+    },
+    subSection: {
+        padding: 16,
+    },
+    sectionDivider: {
+        height: 1,
+        backgroundColor: BORDER,
+        marginHorizontal: 16,
+    },
+    marketSection: {
+        marginBottom: 24,
+    },
+    cryptoScroll: {
+        paddingLeft: 16,
+    },
+    cryptoCard: {
+        width: 140,
+        marginRight: 12,
+        borderRadius: 16,
+        overflow: 'hidden',
+    },
+    selectedCryptoCard: {
+        borderWidth: 2,
+        borderColor: GREEN,
+    },
+    cryptoGradient: {
+        padding: 16,
+        height: 120,
+        justifyContent: 'space-between',
+    },
+    cryptoHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 8,
+    },
+    cryptoSymbol: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginLeft: 8,
+    },
+    cryptoName: {
+        color: '#666',
+        fontSize: 12,
+        marginBottom: 4,
+    },
+    cryptoPrice: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 8,
+    },
+    cryptoChange: {
+        alignSelf: 'flex-start',
+        paddingHorizontal: 8,
+        paddingVertical: 4,
+        borderRadius: 12,
+    },
+    cryptoChangeText: {
+        fontSize: 12,
+        fontWeight: 'bold',
+    },
+    chartSection: {
+        marginBottom: 24,
+    },
+    timeFilter: {
+        flexDirection: 'row',
+        backgroundColor: '#1A1F2E',
+        borderRadius: 12,
+        padding: 4,
+    },
+    timeButton: {
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 8,
+    },
+    activeTimeButton: {
+        backgroundColor: GREEN,
+    },
+    timeText: {
+        color: '#666',
+        fontSize: 12,
+        fontWeight: 'bold',
+    },
+    activeTimeText: {
+        color: '#fff',
+        fontSize: 12,
+        fontWeight: 'bold',
+    },
+    chartContainer: {
+        backgroundColor: CARD_BG,
+        borderRadius: 16,
+        borderWidth: 1,
+        borderColor: BORDER,
+        padding: 20,
+        minHeight: 200,
+    },
+    chartContent: {
+        flex: 1,
+    },
+    chartHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    chartTitle: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    chartPrice: {
+        color: GREEN,
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    chartArea: {
+        flex: 1,
+        position: 'relative',
+        height: 120,
+        marginBottom: 20,
+    },
+    candlestickContainer: {
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+    },
+    candlestick: {
+        position: 'absolute',
+        width: 8,
+        alignItems: 'center',
+    },
+    wick: {
+        width: 0.5,
+        backgroundColor: '#666',
+    },
+    body: {
+        width: 6,
+        borderRadius: 1,
+    },
+    chartFooter: {
+        alignItems: 'center',
+    },
+    chartSubtitle: {
+        color: '#666',
+        fontSize: 14,
+        textAlign: 'center',
+    },
+
+    // Asset Item Styles
+    assetItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        backgroundColor: '#232834',
+        borderRadius: 12,
+        marginBottom: 8,
+        borderWidth: 1,
+        borderColor: BORDER,
+    },
+    assetLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        flex: 1,
+    },
+    assetIcon: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: GREEN + '20',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 12,
+    },
+    assetSymbol: {
+        color: GREEN,
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    assetInfo: {
+        flex: 1,
+    },
+    assetName: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginBottom: 2,
+    },
+    assetAmount: {
+        color: '#aaa',
+        fontSize: 12,
+    },
+    assetRight: {
+        alignItems: 'flex-end',
+    },
+    assetValue: {
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+
+    // Transaction Item Styles
+    transactionItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        backgroundColor: '#232834',
+        borderRadius: 12,
+        marginBottom: 8,
+        borderWidth: 1,
+        borderColor: BORDER,
+    },
+    transactionLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        flex: 1,
+    },
+    transactionIcon: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 12,
+    },
+    transactionInfo: {
+        flex: 1,
+    },
+    transactionDescription: {
+        color: '#fff',
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginBottom: 2,
+    },
+    transactionTime: {
+        color: '#666',
+        fontSize: 12,
+    },
+    transactionRight: {
+        alignItems: 'flex-end',
+    },
+    transactionAmount: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 2,
+    },
+    transactionStatus: {
+        color: '#666',
+        fontSize: 12,
+        textTransform: 'capitalize',
+    },
+}); 

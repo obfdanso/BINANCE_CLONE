@@ -1,0 +1,48 @@
+# ---- Secrets -------------------------------------------------------------
+# Never commit these. backend/env.example lists what they should contain.
+.env
+.env.*
+!.env.example
+*.pem
+*.jks
+*.p8
+*.p12
+*.keystore
+
+# ---- Frontend (Expo / React Native) --------------------------------------
+node_modules/
+frontend/.expo/
+frontend/dist/
+frontend/web-build/
+frontend/expo-env.d.ts
+frontend/.metro-health-check*
+*.tsbuildinfo
+
+# ---- Backend (Maven / Spring Boot) ---------------------------------------
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/.expo/
+backend/*.log
+
+# ---- Local database dumps ------------------------------------------------
+# A pg_dump of a development database carries real rows: account emails,
+# bcrypt password hashes, Telegram handles. Keep dumps out of the repository.
+*.sql
+*.sql.gz
+*.sql.bak
+!backend/update_verification_otps_constraint.sql
+
+# ---- Editors / OS --------------------------------------------------------
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ---- Local leftovers from the two-repo layout this replaced --------------
+# The original safari/ and megamind/ histories are kept here so nothing is
+# lost; they are not part of this repository.
+_legacy-git/
+safari/
+megamind/
+lint*.json
+sweep.json
