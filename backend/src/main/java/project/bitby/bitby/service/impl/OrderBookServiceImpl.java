@@ -112,11 +112,16 @@ public class OrderBookServiceImpl implements OrderBookService {
     public void rebuildOrderBook(TradingPair tradingPair) {
         log.info("Rebuilding order book for trading pair: {}", tradingPair.getSymbol());
         
-        // Clear existing order book entries
-        orderBookEntryRepository.deleteByTradingPairAndSideAndPrice(
-                tradingPair, OrderBookEntry.OrderSide.BID, BigDecimal.ZERO);
-        orderBookEntryRepository.deleteByTradingPairAndSideAndPrice(
-                tradingPair, OrderBookEntry.OrderSide.ASK, BigDecimal.ZERO);
+        /*
+         * Clear the whole book for this pair before rebuilding.
+         *
+         * This used to delete only the entries priced at zero, of which there
+         * are none, and then create a fresh entry for every price level on top
+         * of the ones already there. The rebuild runs every five minutes, so
+         * the book doubled each time until findByTradingPairAndSideAndPrice
+         * found more than one row and order placement failed outright.
+         */
+        orderBookEntryRepository.deleteByTradingPair(tradingPair);
         
         // Get all active orders for this trading pair
         List<Order> activeOrders = orderRepository.findByTradingPairAndStatusIn(
@@ -197,8 +202,11 @@ public class OrderBookServiceImpl implements OrderBookService {
                 OrderBookEntry.OrderSide.BID : OrderBookEntry.OrderSide.ASK;
         
         // Find existing entry at this price level
-        OrderBookEntry existingEntry = orderBookEntryRepository.findByTradingPairAndSideAndPrice(
+        // Tolerate duplicates left behind by earlier rebuilds rather than
+        // throwing; the unique index added alongside this stops new ones.
+        List<OrderBookEntry> existing = orderBookEntryRepository.findAllByTradingPairAndSideAndPrice(
                 order.getTradingPair(), side, order.getPrice());
+        OrderBookEntry existingEntry = existing.isEmpty() ? null : existing.get(0);
         
         if (existingEntry != null) {
             // Update existing entry

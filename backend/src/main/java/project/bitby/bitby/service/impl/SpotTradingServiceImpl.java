@@ -93,9 +93,22 @@ public class SpotTradingServiceImpl implements SpotTradingService {
             throw new RuntimeException("Cannot cancel order with status: " + order.getStatus());
         }
         
-        // Refund remaining balance
-        refundUserBalance(user, order);
-        
+        /*
+         * No refund happens here, and none should.
+         *
+         * Placing an order does not move money. What an account can still
+         * spend is balance minus the amount its open orders commit, which
+         * validateUserBalance works out by querying those orders. Cancelling
+         * takes this one out of PENDING, so the amount stops counting and the
+         * funds are free again the moment the status changes.
+         *
+         * There used to be a refundUserBalance stub here waiting to be filled
+         * in. Implementing it would have credited an amount that was never
+         * debited - money from nowhere. If order placement ever switches to
+         * reserving funds up front, the refund belongs here and both halves
+         * have to land together.
+         */
+
         // Update order status
         order.setStatus(Order.OrderStatus.CANCELLED);
         order.setUpdatedAt(LocalDateTime.now());
@@ -457,11 +470,6 @@ public class SpotTradingServiceImpl implements SpotTradingService {
 
     private BigDecimal calculateFee(BigDecimal quantity, BigDecimal price, BigDecimal feeRate) {
         return quantity.multiply(price).multiply(feeRate).setScale(8, RoundingMode.HALF_UP);
-    }
-
-    private void refundUserBalance(User user, Order order) {
-        // TODO: Implement balance refund logic
-        log.info("Refunding balance for cancelled order: {}", order.getId());
     }
 
 

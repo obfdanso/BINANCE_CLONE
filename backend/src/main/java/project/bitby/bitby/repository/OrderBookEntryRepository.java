@@ -32,4 +32,15 @@ public interface OrderBookEntryRepository extends JpaRepository<OrderBookEntry, 
     OrderBookEntry findByTradingPairAndSideAndPrice(TradingPair tradingPair, OrderBookEntry.OrderSide side, BigDecimal price);
     
     void deleteByTradingPairAndSideAndPrice(TradingPair tradingPair, OrderBookEntry.OrderSide side, BigDecimal price);
+
+    /** Clears a pair's whole book, which is what a rebuild needs. */
+    void deleteByTradingPair(TradingPair tradingPair);
+
+    /**
+     * Price levels should be unique per pair and side, but nothing enforced
+     * that, so duplicates accumulated and this lookup started failing with
+     * "Query did not return a unique result". Returning a list lets the caller
+     * cope with rows that already exist.
+     */
+    List<OrderBookEntry> findAllByTradingPairAndSideAndPrice(TradingPair tradingPair, OrderBookEntry.OrderSide side, BigDecimal price);
 } 
